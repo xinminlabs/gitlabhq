@@ -66,7 +66,7 @@ describe 'bin/changelog' do
       end
     end
 
-    describe '.read_type'  do
+    describe '.read_type' do
       let(:type) { '1' }
 
       it 'reads type from $stdin' do

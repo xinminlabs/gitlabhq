@@ -305,7 +305,7 @@ describe MergeRequests::BuildService do
     end
 
     context 'target_project is set and accessible by current_user' do
-      let(:target_project) { create(:project, :public, :repository)}
+      let(:target_project) { create(:project, :public, :repository) }
       let(:commits) { Commit.decorate([commit_1], project) }
 
       it 'sets target project correctly' do
@@ -314,7 +314,7 @@ describe MergeRequests::BuildService do
     end
 
     context 'target_project is set but not accessible by current_user' do
-      let(:target_project) { create(:project, :private, :repository)}
+      let(:target_project) { create(:project, :private, :repository) }
       let(:commits) { Commit.decorate([commit_1], project) }
 
       it 'sets target project correctly' do
@@ -323,7 +323,7 @@ describe MergeRequests::BuildService do
     end
 
     context 'source_project is set and accessible by current_user' do
-      let(:source_project) { create(:project, :public, :repository)}
+      let(:source_project) { create(:project, :public, :repository) }
       let(:commits) { Commit.decorate([commit_1], project) }
 
       it 'sets target project correctly' do
@@ -332,7 +332,7 @@ describe MergeRequests::BuildService do
     end
 
     context 'source_project is set but not accessible by current_user' do
-      let(:source_project) { create(:project, :private, :repository)}
+      let(:source_project) { create(:project, :private, :repository) }
       let(:commits) { Commit.decorate([commit_1], project) }
 
       it 'sets target project correctly' do

@@ -14,8 +14,8 @@ class NoteEntity < API::Entities::Note
 
   expose :redacted_note_html, as: :note_html
 
-  expose :last_edited_at, if: -> (note, _) { note.edited? }
-  expose :last_edited_by, using: NoteUserEntity, if: -> (note, _) { note.edited? }
+  expose :last_edited_at, if: ->(note, _) { note.edited? }
+  expose :last_edited_by, using: NoteUserEntity, if: ->(note, _) { note.edited? }
 
   expose :current_user do
     expose :can_edit do |note|
@@ -23,7 +23,7 @@ class NoteEntity < API::Entities::Note
     end
   end
 
-  expose :system_note_icon_name, if: -> (note, _) { note.system? } do |note|
+  expose :system_note_icon_name, if: ->(note, _) { note.system? } do |note|
     SystemNoteHelper.system_note_icon_name(note)
   end
 
@@ -32,8 +32,8 @@ class NoteEntity < API::Entities::Note
   end
 
   expose :emoji_awardable?, as: :emoji_awardable
-  expose :award_emoji, if: -> (note, _) { note.emoji_awardable? }, using: AwardEmojiEntity
-  expose :toggle_award_path, if: -> (note, _) { note.emoji_awardable? } do |note|
+  expose :award_emoji, if: ->(note, _) { note.emoji_awardable? }, using: AwardEmojiEntity
+  expose :toggle_award_path, if: ->(note, _) { note.emoji_awardable? } do |note|
     if note.for_personal_snippet?
       toggle_award_emoji_snippet_note_path(note.noteable, note)
     else
@@ -53,8 +53,8 @@ class NoteEntity < API::Entities::Note
     end
   end
 
-  expose :attachment, using: NoteAttachmentEntity, if: -> (note, _) { note.attachment? }
-  expose :delete_attachment_path, if: -> (note, _) { note.attachment? } do |note|
+  expose :attachment, using: NoteAttachmentEntity, if: ->(note, _) { note.attachment? }
+  expose :delete_attachment_path, if: ->(note, _) { note.attachment? } do |note|
     delete_attachment_project_note_path(note.project, note)
   end
 end

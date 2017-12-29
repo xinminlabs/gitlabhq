@@ -181,7 +181,7 @@ feature 'Issues > User uses quick actions', :js do
       end
 
       context 'when the project is valid but the user not authorized' do
-        let(:project_unauthorized) {create(:project, :public)}
+        let(:project_unauthorized) { create(:project, :public) }
 
         before do
           sign_in(user)

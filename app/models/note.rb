@@ -22,7 +22,7 @@ class Note < ActiveRecord::Base
 
     class << self
       def values
-        constants.map {|const| self.const_get(const)}
+        constants.map { |const| self.const_get(const) }
       end
     end
   end

@@ -125,7 +125,7 @@ describe 'gitlab:gitaly namespace rake task' do
         TOML
       end
 
-      expect { run_rake_task('gitlab:gitaly:storage_config')}
+      expect { run_rake_task('gitlab:gitaly:storage_config') }
         .to output(expected_output).to_stdout
 
       parsed_output = TOML.parse(expected_output)

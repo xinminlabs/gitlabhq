@@ -314,7 +314,7 @@ describe Gitlab::Git::DiffCollection, seed_helper: true do
 
     describe '#real_size' do
       subject { super().real_size }
-      it { is_expected.to eq('0')}
+      it { is_expected.to eq('0') }
     end
   end
 

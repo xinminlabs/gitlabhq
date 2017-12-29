@@ -340,7 +340,7 @@ constraints(ProjectUrlConstrainer.new) do
           get :discussions, format: :json
         end
         collection do
-          post  :bulk_update
+          post :bulk_update
         end
       end
 

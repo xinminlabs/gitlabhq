@@ -73,7 +73,7 @@ module Gitlab
       end
 
       def already_contains_methods?(value)
-        value.is_a?(Hash) && value.values.detect { |val| val[:methods]}
+        value.is_a?(Hash) && value.values.detect { |val| val[:methods] }
       end
 
       # Adds new model configuration to an existing hash with key +current_key+

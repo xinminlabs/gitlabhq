@@ -144,7 +144,7 @@ class MergeRequest < ActiveRecord::Base
   scope :references_project, -> { references(:target_project) }
   scope :assigned, -> { where("assignee_id IS NOT NULL") }
   scope :unassigned, -> { where("assignee_id IS NULL") }
-  scope :assigned_to, ->(u) { where(assignee_id: u.id)}
+  scope :assigned_to, ->(u) { where(assignee_id: u.id) }
 
   participant :assignee
 

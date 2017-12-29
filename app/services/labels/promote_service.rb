@@ -31,7 +31,7 @@ module Labels
         .new(current_user, title: new_label.title, group_id: project.group.id)
         .execute(skip_authorization: true)
         .where.not(id: new_label)
-        .select(:id)  # Can't use pluck() to avoid object-creation because of the batching
+        .select(:id) # Can't use pluck() to avoid object-creation because of the batching
     end
 
     def update_issuables(new_label, label_ids)

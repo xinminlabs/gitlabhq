@@ -1,12 +1,12 @@
 require 'rails_helper'
 
 describe 'Markdown References', :js do
-  let(:user)    { create(:user) }
+  let(:user) { create(:user) }
   let(:actual_project) { create(:project, :public, :repository) }
-  let(:merge_request) { create(:merge_request, target_project: actual_project, source_project: actual_project)}
+  let(:merge_request) { create(:merge_request, target_project: actual_project, source_project: actual_project) }
   let(:issue_actual_project) { create(:issue, project: actual_project) }
   let!(:other_project) { create(:project, :public) }
-  let!(:issue_other_project)   { create(:issue, project: other_project) }
+  let!(:issue_other_project) { create(:issue, project: other_project) }
   let(:issues) { [issue_actual_project, issue_other_project] }
 
   def build_note

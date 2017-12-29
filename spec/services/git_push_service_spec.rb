@@ -153,7 +153,7 @@ describe GitPushService, services: true do
       it "when pushing a new branch for the first time" do
         expect(UpdateMergeRequestsWorker).to receive(:perform_async)
                                                 .with(project.id, user.id, blankrev, 'newrev', ref)
-        execute_service(project, user, blankrev, 'newrev', ref )
+        execute_service(project, user, blankrev, 'newrev', ref)
       end
     end
 
@@ -453,7 +453,7 @@ describe GitPushService, services: true do
       end
 
       context "closing an issue" do
-        let(:message)         { "this is some work.\n\ncloses JIRA-1" }
+        let(:message) { "this is some work.\n\ncloses JIRA-1" }
         let(:comment_body) do
           {
             body: "Issue solved with [#{closing_commit.id}|http://#{Gitlab.config.gitlab.host}/#{project.full_path}/commit/#{closing_commit.id}]."
@@ -549,7 +549,7 @@ describe GitPushService, services: true do
 
     before do
       allow(project).to receive(:default_branch).and_return('feature')
-      expect(project).to receive(:change_head) { 'feature'}
+      expect(project).to receive(:change_head) { 'feature' }
     end
 
     it 'push to first branch updates HEAD' do

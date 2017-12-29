@@ -17,7 +17,7 @@ describe API::V3::Labels do
       project.update(group: group)
       create(:labeled_issue, project: project, labels: [group_label], author: user)
       create(:labeled_issue, project: project, labels: [label1], author: user, state: :closed)
-      create(:labeled_merge_request, labels: [priority_label], author: user, source_project: project )
+      create(:labeled_merge_request, labels: [priority_label], author: user, source_project: project)
 
       expected_keys = %w(
         id name color description

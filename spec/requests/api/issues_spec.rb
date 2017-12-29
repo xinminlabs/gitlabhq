@@ -861,7 +861,7 @@ describe API::Issues, :mailer do
     end
 
     context 'user does not have permissions to create issue' do
-      let(:not_member)  { create(:user) }
+      let(:not_member) { create(:user) }
 
       before do
         project.project_feature.update(issues_access_level: ProjectFeature::PRIVATE)
@@ -1371,8 +1371,8 @@ describe API::Issues, :mailer do
   end
 
   describe '/projects/:id/issues/:issue_iid/move' do
-    let!(:target_project) { create(:project, path: 'project2', creator_id: user.id, namespace: user.namespace ) }
-    let!(:target_project2) { create(:project, creator_id: non_member.id, namespace: non_member.namespace ) }
+    let!(:target_project) { create(:project, path: 'project2', creator_id: user.id, namespace: user.namespace) }
+    let!(:target_project2) { create(:project, creator_id: non_member.id, namespace: non_member.namespace) }
 
     it 'moves an issue' do
       post api("/projects/#{project.id}/issues/#{issue.iid}/move", user),

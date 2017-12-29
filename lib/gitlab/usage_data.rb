@@ -106,7 +106,7 @@ module Gitlab
         }
 
         results = Service.unscoped.where(type: types.keys, active: true).group(:type).count
-        results.each_with_object({}) { |(key, value), response| response[types[key.to_sym]] = value  }
+        results.each_with_object({}) { |(key, value), response| response[types[key.to_sym]] = value }
       end
     end
   end

@@ -7,7 +7,7 @@ require 'gitlab'
 #
 Gitlab.configure do |config|
   config.endpoint       = 'https://gitlab.com/api/v4'
-  config.private_token  = ENV["DOCS_API_TOKEN"]  # GitLab Docs bot access token which has only Developer access to gitlab-docs
+  config.private_token  = ENV["DOCS_API_TOKEN"] # GitLab Docs bot access token which has only Developer access to gitlab-docs
 end
 
 #

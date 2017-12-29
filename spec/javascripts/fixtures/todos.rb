@@ -4,7 +4,7 @@ describe 'Todos (JavaScript fixtures)' do
   include JavaScriptFixturesHelpers
 
   let(:admin) { create(:admin) }
-  let(:namespace) { create(:namespace, name: 'frontend-fixtures' )}
+  let(:namespace) { create(:namespace, name: 'frontend-fixtures') }
   let(:project) { create(:project_empty_repo, namespace: namespace, path: 'todos-project') }
   let(:issue_1) { create(:issue, title: 'issue_1', project: project) }
   let!(:todo_1) { create(:todo, user: admin, project: project, target: issue_1, created_at: 5.hours.ago) }

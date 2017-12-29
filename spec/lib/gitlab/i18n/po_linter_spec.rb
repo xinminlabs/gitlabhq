@@ -265,7 +265,7 @@ describe Gitlab::I18n::PoLinter do
     it 'succeeds with valid variables' do
       errors = []
 
-      linter.validate_translation(errors, 'Hello %{world}',  ['%{world}'])
+      linter.validate_translation(errors, 'Hello %{world}', ['%{world}'])
 
       expect(errors).to be_empty
     end

@@ -4,7 +4,7 @@ describe Projects::ClustersController, '(JavaScript fixtures)', type: :controlle
   include JavaScriptFixturesHelpers
 
   let(:admin) { create(:admin) }
-  let(:namespace) { create(:namespace, name: 'frontend-fixtures' )}
+  let(:namespace) { create(:namespace, name: 'frontend-fixtures') }
   let(:project) { create(:project, :repository, namespace: namespace) }
   let(:cluster) { create(:cluster, :provided_by_gcp, projects: [project]) }
 

@@ -6,7 +6,7 @@ describe Gitlab::Database::RenameReservedPathsMigration::V1::RenameProjects, :tr
   let(:project) do
     create(:project,
            path: 'the-path',
-           namespace: create(:namespace, path: 'known-parent' ))
+           namespace: create(:namespace, path: 'known-parent'))
   end
 
   before do

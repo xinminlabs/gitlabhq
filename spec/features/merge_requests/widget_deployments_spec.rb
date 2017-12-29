@@ -9,7 +9,7 @@ feature 'Widget Deployments Header', :js do
     given(:role) { :developer }
     given(:sha) { project.commit('master').id }
     given!(:deployment) { create(:deployment, environment: environment, sha: sha) }
-    given!(:manual) { }
+    given!(:manual) {}
 
     background do
       sign_in(user)

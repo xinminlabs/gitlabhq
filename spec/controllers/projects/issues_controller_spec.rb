@@ -765,7 +765,7 @@ describe Projects::IssuesController do
           let!(:spam_logs) { create_list(:spam_log, 2, user: user, title: 'Title') }
 
           def post_verified_issue
-            post_new_issue({}, { spam_log_id: spam_logs.last.id, recaptcha_verification: true } )
+            post_new_issue({}, { spam_log_id: spam_logs.last.id, recaptcha_verification: true })
           end
 
           before do
@@ -783,7 +783,7 @@ describe Projects::IssuesController do
           it 'does not mark spam log as recaptcha_verified when it does not belong to current_user' do
             spam_log = create(:spam_log)
 
-            expect { post_new_issue({}, { spam_log_id: spam_log.id, recaptcha_verification: true } ) }
+            expect { post_new_issue({}, { spam_log_id: spam_log.id, recaptcha_verification: true }) }
               .not_to change { SpamLog.last.recaptcha_verified }
           end
         end

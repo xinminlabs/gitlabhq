@@ -82,7 +82,7 @@ class MigrateGcpClustersToNewClustersArchitectures < ActiveRecord::Migration
           encrypted_password_iv: gcp_cluster.encrypted_password_iv,
           encrypted_token: gcp_cluster.encrypted_kubernetes_token,
           encrypted_token_iv: gcp_cluster.encrypted_kubernetes_token_iv
-        } )
+        })
     end
   end
 

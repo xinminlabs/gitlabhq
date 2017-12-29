@@ -252,7 +252,7 @@ class Spinach::Features::ProjectSourceMarkdownRender < Spinach::FeatureSteps
   end
 
   step 'I see new wiki page named test' do
-    expect(current_path).to eq  project_wiki_path(@project, "test")
+    expect(current_path).to eq project_wiki_path(@project, "test")
 
     page.within(:css, ".nav-text") do
       expect(page).to have_content "Test"

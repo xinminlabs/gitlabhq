@@ -201,7 +201,7 @@ describe API::Runner do
 
     describe 'POST /api/v4/jobs/request' do
       let!(:last_update) {}
-      let!(:new_update) { }
+      let!(:new_update) {}
       let(:user_agent) { 'gitlab-runner 9.0.0 (9-0-stable; go1.7.4; linux/amd64)' }
 
       before do
@@ -578,7 +578,7 @@ describe API::Runner do
 
             context 'when variables are stored in trigger_request' do
               before do
-                trigger_request.update_attribute(:variables, { TRIGGER_KEY_1: 'TRIGGER_VALUE_1' } )
+                trigger_request.update_attribute(:variables, { TRIGGER_KEY_1: 'TRIGGER_VALUE_1' })
               end
 
               it_behaves_like 'expected variables behavior'
@@ -731,7 +731,7 @@ describe API::Runner do
         end
 
         context 'when job has been updated recently' do
-          it { expect { patch_the_trace }.not_to change { job.updated_at }}
+          it { expect { patch_the_trace }.not_to change { job.updated_at } }
 
           it "changes the job's trace" do
             patch_the_trace
@@ -740,7 +740,7 @@ describe API::Runner do
           end
 
           context 'when Runner makes a force-patch' do
-            it { expect { force_patch_the_trace }.not_to change { job.updated_at }}
+            it { expect { force_patch_the_trace }.not_to change { job.updated_at } }
 
             it "doesn't change the build.trace" do
               force_patch_the_trace
@@ -921,7 +921,7 @@ describe API::Runner do
 
         context 'authorization token is invalid' do
           it 'responds with forbidden' do
-            authorize_artifacts(token: 'invalid', filesize: 100 )
+            authorize_artifacts(token: 'invalid', filesize: 100)
 
             expect(response).to have_gitlab_http_status(403)
           end

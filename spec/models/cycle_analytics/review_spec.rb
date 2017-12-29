@@ -10,13 +10,13 @@ describe 'CycleAnalytics#review' do
 
   generate_cycle_analytics_spec(
     phase: :review,
-    data_fn: -> (context) { { issue: context.create(:issue, project: context.project) } },
+    data_fn: ->(context) { { issue: context.create(:issue, project: context.project) } },
     start_time_conditions: [["merge request that closes issue is created",
-                             -> (context, data) do
+                             ->(context, data) do
                                context.create_merge_request_closing_issue(data[:issue])
                              end]],
     end_time_conditions:   [["merge request that closes issue is merged",
-                             -> (context, data) do
+                             ->(context, data) do
                                context.merge_merge_requests_closing_issue(data[:issue])
                              end]],
     post_fn: nil)

@@ -3,8 +3,8 @@ require 'spec_helper'
 feature 'Merge Request closing issues message', :js do
   let(:user) { create(:user) }
   let(:project) { create(:project, :public, :repository) }
-  let(:issue_1) { create(:issue, project: project)}
-  let(:issue_2) { create(:issue, project: project)}
+  let(:issue_1) { create(:issue, project: project) }
+  let(:issue_2) { create(:issue, project: project) }
   let(:merge_request) do
     create(
       :merge_request,

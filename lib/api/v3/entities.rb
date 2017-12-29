@@ -41,7 +41,7 @@ module API
         expose :push_event_payload,
           as: :push_data,
           using: PushEventPayload,
-          if: -> (event, _) { event.push? }
+          if: ->(event, _) { event.push? }
 
         expose :author_username do |event, options|
           event.author&.username
@@ -154,7 +154,7 @@ module API
         end
 
         expose :statistics, if: :statistics do
-          with_options format_with: -> (value) { value.to_i } do
+          with_options format_with: ->(value) { value.to_i } do
             expose :storage_size
             expose :repository_size
             expose :lfs_objects_size
@@ -219,7 +219,7 @@ module API
         expose :id, :status, :stage, :name, :ref, :tag, :coverage
         expose :created_at, :started_at, :finished_at
         expose :user, with: ::API::Entities::User
-        expose :artifacts_file, using: ::API::Entities::JobArtifactFile, if: -> (build, opts) { build.artifacts? }
+        expose :artifacts_file, using: ::API::Entities::JobArtifactFile, if: ->(build, opts) { build.artifacts? }
         expose :commit, with: ::API::Entities::Commit
         expose :runner, with: ::API::Entities::Runner
         expose :pipeline, with: ::API::Entities::PipelineBasic

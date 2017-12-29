@@ -4,7 +4,7 @@ describe Projects::BoardsController, '(JavaScript fixtures)', type: :controller 
   include JavaScriptFixturesHelpers
 
   let(:admin) { create(:admin) }
-  let(:namespace) { create(:namespace, name: 'frontend-fixtures' )}
+  let(:namespace) { create(:namespace, name: 'frontend-fixtures') }
   let(:project) { create(:project, :repository, namespace: namespace, path: 'boards-project') }
 
   render_views

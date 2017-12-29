@@ -52,7 +52,7 @@ shared_context 'simple_check' do |metrics_prefix, check_name, success_result|
 
     context 'Check is timeouting' do
       before do
-        allow(described_class).to receive(:check ).and_return Timeout::Error.new
+        allow(described_class).to receive(:check).and_return Timeout::Error.new
       end
 
       it { is_expected.to have_attributes(success: false, message: "#{described_class.human_name} check timed out") }

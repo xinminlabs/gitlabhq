@@ -12,9 +12,9 @@ feature 'Environment' do
 
   feature 'environment details page' do
     given!(:environment) { create(:environment, project: project) }
-    given!(:permissions) { }
-    given!(:deployment) { }
-    given!(:action) { }
+    given!(:permissions) {}
+    given!(:deployment) {}
+    given!(:action) {}
 
     before do
       visit_environment(environment)

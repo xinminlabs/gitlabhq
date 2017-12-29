@@ -9,7 +9,7 @@ describe 'gitlab:cleanup rake tasks' do
     let(:gitaly_address) { Gitlab.config.repositories.storages.default.gitaly_address }
     let(:storages) do
       {
-        'default' => { 'path' => Settings.absolute('tmp/tests/default_storage'), 'gitaly_address' => gitaly_address  }
+        'default' => { 'path' => Settings.absolute('tmp/tests/default_storage'), 'gitaly_address' => gitaly_address }
       }
     end
 

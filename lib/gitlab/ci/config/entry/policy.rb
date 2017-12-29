@@ -6,8 +6,8 @@ module Gitlab
         # Entry that represents an only/except trigger policy for the job.
         #
         class Policy < Simplifiable
-          strategy :RefsPolicy, if: -> (config) { config.is_a?(Array) }
-          strategy :ComplexPolicy, if: -> (config) { config.is_a?(Hash) }
+          strategy :RefsPolicy, if: ->(config) { config.is_a?(Array) }
+          strategy :ComplexPolicy, if: ->(config) { config.is_a?(Hash) }
 
           class RefsPolicy < Entry::Node
             include Entry::Validatable

@@ -13,8 +13,8 @@ describe 'Git LFS API and storage' do
       'X-Sendfile-Type' => sendfile
     }.compact
   end
-  let(:authorization) { }
-  let(:sendfile) { }
+  let(:authorization) {}
+  let(:sendfile) {}
   let(:pipeline) { create(:ci_empty_pipeline, project: project) }
 
   let(:sample_oid) { lfs_object.oid }
@@ -190,7 +190,7 @@ describe 'Git LFS API and storage' do
 
   describe 'when fetching lfs object' do
     let(:project) { create(:project) }
-    let(:update_permissions) { }
+    let(:update_permissions) {}
 
     before do
       enable_lfs
@@ -358,8 +358,8 @@ describe 'Git LFS API and storage' do
   end
 
   describe 'when handling lfs batch request' do
-    let(:update_lfs_permissions) { }
-    let(:update_user_permissions) { }
+    let(:update_lfs_permissions) {}
+    let(:update_user_permissions) {}
 
     before do
       enable_lfs

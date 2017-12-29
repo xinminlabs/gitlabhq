@@ -6,7 +6,7 @@ describe IssuesHelper do
   let(:ext_project) { create :redmine_project }
 
   describe "url_for_issue" do
-    let(:issues_url) { ext_project.external_issue_tracker.issues_url}
+    let(:issues_url) { ext_project.external_issue_tracker.issues_url }
     let(:ext_expected) { issues_url.gsub(':id', issue.iid.to_s).gsub(':project_id', ext_project.id.to_s) }
     let(:int_expected) { polymorphic_path([@project.namespace, @project, issue]) }
 
@@ -144,7 +144,7 @@ describe IssuesHelper do
     end
 
     describe "when passing a discussion" do
-      let(:diff_note) {  create(:diff_note_on_merge_request) }
+      let(:diff_note) { create(:diff_note_on_merge_request) }
       let(:merge_request) { diff_note.noteable }
       let(:discussion) { diff_note.to_discussion }
 

@@ -140,7 +140,7 @@ describe Gitlab::GithubImport::Importer::PullRequestsImporter do
       expect(importer)
         .to receive(:update_repository)
 
-      importer.each_object_to_import { }
+      importer.each_object_to_import {}
     end
   end
 

@@ -8,15 +8,15 @@ class JobEntity < Grape::Entity
     build.target_url || path_to(:namespace_project_job, build)
   end
 
-  expose :retry_path, if: -> (*) { retryable? } do |build|
+  expose :retry_path, if: ->(*) { retryable? } do |build|
     path_to(:retry_namespace_project_job, build)
   end
 
-  expose :cancel_path, if: -> (*) { cancelable? } do |build|
+  expose :cancel_path, if: ->(*) { cancelable? } do |build|
     path_to(:cancel_namespace_project_job, build)
   end
 
-  expose :play_path, if: -> (*) { playable? } do |build|
+  expose :play_path, if: ->(*) { playable? } do |build|
     path_to(:play_namespace_project_job, build)
   end
 

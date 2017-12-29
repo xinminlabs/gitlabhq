@@ -324,7 +324,7 @@ describe API::Groups do
   end
 
   describe 'PUT /groups/:id' do
-    let(:new_group_name) { 'New Group'}
+    let(:new_group_name) { 'New Group' }
 
     context 'when authenticated as the group owner' do
       it 'updates the group' do

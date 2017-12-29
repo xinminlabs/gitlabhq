@@ -224,7 +224,7 @@ describe JiraService do
       api_url ||= 'jira.example.com'
       test_url = "http://#{api_url}/rest/api/2/serverInfo"
 
-      WebMock.stub_request(:get, test_url).with(basic_auth: %w(jira_username jira_password)).to_return(body: { url: 'http://url' }.to_json )
+      WebMock.stub_request(:get, test_url).with(basic_auth: %w(jira_username jira_password)).to_return(body: { url: 'http://url' }.to_json)
 
       jira_service.test(nil)
     end
@@ -235,7 +235,7 @@ describe JiraService do
       end
 
       it 'returns correct result' do
-        expect(test_settings).to eq( { success: true, result: { 'url' => 'http://url' } })
+        expect(test_settings).to eq({ success: true, result: { 'url' => 'http://url' } })
       end
 
       it 'tries to get JIRA project with API URL if set' do
@@ -250,7 +250,7 @@ describe JiraService do
         WebMock.stub_request(:get, test_url).with(basic_auth: %w(jira_username jira_password))
           .to_raise(JIRA::HTTPError.new(double(message: 'Some specific failure.')))
 
-        expect(jira_service.test(nil)).to eq( { success: false, result: 'Some specific failure.' })
+        expect(jira_service.test(nil)).to eq({ success: false, result: 'Some specific failure.' })
       end
     end
   end

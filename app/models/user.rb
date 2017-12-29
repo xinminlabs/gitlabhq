@@ -117,7 +117,7 @@ class User < ActiveRecord::Base
   has_many :merge_requests,           dependent: :destroy, foreign_key: :author_id # rubocop:disable Cop/ActiveRecordDependent
   has_many :events,                   dependent: :destroy, foreign_key: :author_id # rubocop:disable Cop/ActiveRecordDependent
   has_many :subscriptions,            dependent: :destroy # rubocop:disable Cop/ActiveRecordDependent
-  has_many :recent_events, -> { order "id DESC" }, foreign_key: :author_id,   class_name: "Event"
+  has_many :recent_events, -> { order "id DESC" }, foreign_key: :author_id, class_name: "Event"
   has_many :oauth_applications, class_name: 'Doorkeeper::Application', as: :owner, dependent: :destroy # rubocop:disable Cop/ActiveRecordDependent
   has_one  :abuse_report,             dependent: :destroy, foreign_key: :user_id # rubocop:disable Cop/ActiveRecordDependent
   has_many :reported_abuse_reports,   dependent: :destroy, foreign_key: :reporter_id, class_name: "AbuseReport" # rubocop:disable Cop/ActiveRecordDependent
@@ -131,7 +131,7 @@ class User < ActiveRecord::Base
 
   has_many :issue_assignees
   has_many :assigned_issues, class_name: "Issue", through: :issue_assignees, source: :issue
-  has_many :assigned_merge_requests,  dependent: :nullify, foreign_key: :assignee_id, class_name: "MergeRequest" # rubocop:disable Cop/ActiveRecordDependent
+  has_many :assigned_merge_requests, dependent: :nullify, foreign_key: :assignee_id, class_name: "MergeRequest" # rubocop:disable Cop/ActiveRecordDependent
 
   has_many :custom_attributes, class_name: 'UserCustomAttribute'
 
@@ -556,7 +556,7 @@ class User < ActiveRecord::Base
   # By using an `after_commit` instead of `after_update`, we avoid the recursive callback
   # scenario, though it then requires us to use the `previous_changes` hash
   def update_emails_with_primary_email
-    previous_email = previous_changes[:email][0]  # grab this before the DestroyService is called
+    previous_email = previous_changes[:email][0] # grab this before the DestroyService is called
     primary_email_record = emails.find_by(email: email)
     Emails::DestroyService.new(self, user: self).execute(primary_email_record) if primary_email_record
 
@@ -1299,7 +1299,7 @@ class User < ActiveRecord::Base
 
     username = uniquify.string(username) { |s| User.find_by_username(s) }
 
-    email = uniquify.string(-> (n) { Kernel.sprintf(email_pattern, n) }) do |s|
+    email = uniquify.string(->(n) { Kernel.sprintf(email_pattern, n) }) do |s|
       User.find_by_email(s)
     end
 

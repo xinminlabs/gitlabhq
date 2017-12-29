@@ -33,7 +33,7 @@ module IconsHelper
   def sprite_icon(icon_name, size: nil, css_class: nil)
     css_classes = size ? "s#{size}" : ""
     css_classes << " #{css_class}" unless css_class.blank?
-    content_tag(:svg, content_tag(:use, "", { "xlink:href" => "#{sprite_icon_path}##{icon_name}" } ), class: css_classes.empty? ? nil : css_classes)
+    content_tag(:svg, content_tag(:use, "", { "xlink:href" => "#{sprite_icon_path}##{icon_name}" }), class: css_classes.empty? ? nil : css_classes)
   end
 
   def audit_icon(names, options = {})

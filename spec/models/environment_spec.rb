@@ -314,8 +314,8 @@ describe Environment do
   describe '#actions_for' do
     let(:deployment) { create(:deployment, environment: environment) }
     let(:pipeline) { deployment.deployable.pipeline }
-    let!(:review_action) { create(:ci_build, :manual, name: 'review-apps', pipeline: pipeline, environment: 'review/$CI_COMMIT_REF_NAME' )}
-    let!(:production_action) { create(:ci_build, :manual, name: 'production', pipeline: pipeline, environment: 'production' )}
+    let!(:review_action) { create(:ci_build, :manual, name: 'review-apps', pipeline: pipeline, environment: 'review/$CI_COMMIT_REF_NAME') }
+    let!(:production_action) { create(:ci_build, :manual, name: 'production', pipeline: pipeline, environment: 'production') }
 
     it 'returns a list of actions with matching environment' do
       expect(environment.actions_for('review/master')).to contain_exactly(review_action)

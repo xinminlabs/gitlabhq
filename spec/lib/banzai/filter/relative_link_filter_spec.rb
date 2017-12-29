@@ -82,7 +82,7 @@ describe Banzai::Filter::RelativeLinkFilter do
   end
 
   it 'ignores ref if commit is passed' do
-    doc = filter(link('non/existent.file'), commit: project.commit('empty-branch') )
+    doc = filter(link('non/existent.file'), commit: project.commit('empty-branch'))
     expect(doc.at_css('a')['href'])
       .to eq "/#{project_path}/#{ref}/non/existent.file" # non-existent files have no leading blob/raw/tree
   end

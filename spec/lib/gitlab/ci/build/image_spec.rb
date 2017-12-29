@@ -8,7 +8,7 @@ describe Gitlab::Ci::Build::Image do
 
     context 'when image is defined in job' do
       let(:image_name) { 'ruby:2.1' }
-      let(:job) { create(:ci_build, options: { image: image_name } ) }
+      let(:job) { create(:ci_build, options: { image: image_name }) }
 
       context 'when image is defined as string' do
         it 'fabricates an object of the proper class' do
@@ -22,7 +22,7 @@ describe Gitlab::Ci::Build::Image do
 
       context 'when image is defined as hash' do
         let(:entrypoint) { '/bin/sh' }
-        let(:job) { create(:ci_build, options: { image: { name: image_name, entrypoint: entrypoint } } ) }
+        let(:job) { create(:ci_build, options: { image: { name: image_name, entrypoint: entrypoint } }) }
 
         it 'fabricates an object of the proper class' do
           is_expected.to be_kind_of(described_class)

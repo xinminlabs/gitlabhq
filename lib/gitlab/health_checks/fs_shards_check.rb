@@ -88,7 +88,7 @@ module Gitlab
         # so we are still able to perform healthchecks and gather metrics from such system.
 
         def delete_test_file(tmp_path)
-          _, status = exec_with_timeout(%W{ rm -f #{tmp_path} })
+          _, status = exec_with_timeout(%W{rm -f #{tmp_path}})
           status.zero?
         rescue Errno::ENOENT
           File.delete(tmp_path) rescue Errno::ENOENT
@@ -97,7 +97,7 @@ module Gitlab
         def storage_stat_test(storage_name)
           stat_path = File.join(storage_path(storage_name), '.')
           begin
-            _, status = exec_with_timeout(%W{ stat #{stat_path} })
+            _, status = exec_with_timeout(%W{stat #{stat_path}})
             status.zero?
           rescue Errno::ENOENT
             File.exist?(stat_path) && File::Stat.new(stat_path).readable?
@@ -105,7 +105,7 @@ module Gitlab
         end
 
         def storage_write_test(tmp_path)
-          _, status = exec_with_timeout(%W{ tee #{tmp_path} }) do |stdin|
+          _, status = exec_with_timeout(%W{tee #{tmp_path}}) do |stdin|
             stdin.write(RANDOM_STRING)
           end
           status.zero?
@@ -115,7 +115,7 @@ module Gitlab
         end
 
         def storage_read_test(tmp_path)
-          _, status = exec_with_timeout(%W{ diff #{tmp_path} - }) do |stdin|
+          _, status = exec_with_timeout(%W{diff #{tmp_path} -}) do |stdin|
             stdin.write(RANDOM_STRING)
           end
           status.zero?

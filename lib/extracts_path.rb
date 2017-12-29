@@ -108,7 +108,7 @@ module ExtractsPath
   def assign_ref_vars
     # assign allowed options
     allowed_options = ["filter_ref"]
-    @options = params.select {|key, value| allowed_options.include?(key) && !value.blank? }
+    @options = params.select { |key, value| allowed_options.include?(key) && !value.blank? }
     @options = HashWithIndifferentAccess.new(@options)
 
     @id = get_id

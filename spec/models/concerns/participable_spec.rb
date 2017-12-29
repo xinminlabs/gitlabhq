@@ -74,7 +74,7 @@ describe Participable do
         user_arg = nil
         ext_arg = nil
 
-        model.participant -> (user, ext) do
+        model.participant ->(user, ext) do
           user_arg = user
           ext_arg = ext
         end

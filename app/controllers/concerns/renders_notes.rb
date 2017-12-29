@@ -26,6 +26,6 @@ module RendersNotes
   def preload_first_time_contribution_for_authors(noteable, notes)
     return unless noteable.is_a?(Issuable) && noteable.first_contribution?
 
-    notes.each {|n| n.specialize_for_first_contribution!(noteable)}
+    notes.each { |n| n.specialize_for_first_contribution!(noteable) }
   end
 end

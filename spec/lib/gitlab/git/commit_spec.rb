@@ -312,7 +312,7 @@ describe Gitlab::Git::Commit, seed_helper: true do
         it 'should return a return a collection of commits' do
           commits = described_class.find_all(repository)
 
-          expect(commits).to all( be_a_kind_of(described_class) )
+          expect(commits).to all(be_a_kind_of(described_class))
         end
 
         context 'max_count' do
@@ -407,12 +407,12 @@ describe Gitlab::Git::Commit, seed_helper: true do
 
     describe '#id' do
       subject { super().id }
-      it { is_expected.to eq(sample_commit_hash[:id])}
+      it { is_expected.to eq(sample_commit_hash[:id]) }
     end
 
     describe '#message' do
       subject { super().message }
-      it { is_expected.to eq(sample_commit_hash[:message])}
+      it { is_expected.to eq(sample_commit_hash[:message]) }
     end
   end
 
@@ -442,7 +442,7 @@ describe Gitlab::Git::Commit, seed_helper: true do
     subject { commit.to_diff }
 
     it { is_expected.not_to include "From #{SeedRepo::Commit::ID}" }
-    it { is_expected.to include 'diff --git a/files/ruby/popen.rb b/files/ruby/popen.rb'}
+    it { is_expected.to include 'diff --git a/files/ruby/popen.rb b/files/ruby/popen.rb' }
   end
 
   describe '#has_zero_stats?' do
@@ -453,7 +453,7 @@ describe Gitlab::Git::Commit, seed_helper: true do
     subject { commit.to_patch }
 
     it { is_expected.to include "From #{SeedRepo::Commit::ID}" }
-    it { is_expected.to include 'diff --git a/files/ruby/popen.rb b/files/ruby/popen.rb'}
+    it { is_expected.to include 'diff --git a/files/ruby/popen.rb b/files/ruby/popen.rb' }
   end
 
   describe '#to_hash' do

@@ -162,8 +162,8 @@ describe Issue do
 
   describe '#closed_by_merge_requests' do
     let(:project) { create(:project, :repository) }
-    let(:issue) { create(:issue, project: project)}
-    let(:closed_issue) { build(:issue, :closed, project: project)}
+    let(:issue) { create(:issue, project: project) }
+    let(:closed_issue) { build(:issue, :closed, project: project) }
 
     let(:mr) do
       opts = {
@@ -230,7 +230,7 @@ describe Issue do
     subject { issue.can_move?(user) }
 
     context 'user is not a member of project issue belongs to' do
-      it { is_expected.to eq false}
+      it { is_expected.to eq false }
     end
 
     context 'user is reporter in project issue belongs to' do

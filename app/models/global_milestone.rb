@@ -87,7 +87,7 @@ class GlobalMilestone
     @title = title
     @name = title
     @milestones = milestones
-    @first_milestone = milestones.find {|m| m.description.present? } || milestones.first
+    @first_milestone = milestones.find { |m| m.description.present? } || milestones.first
   end
 
   def milestoneish_ids

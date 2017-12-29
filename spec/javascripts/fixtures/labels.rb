@@ -4,7 +4,7 @@ describe 'Labels (JavaScript fixtures)' do
   include JavaScriptFixturesHelpers
 
   let(:admin) { create(:admin) }
-  let(:group) { create(:group, name: 'frontend-fixtures-group' )}
+  let(:group) { create(:group, name: 'frontend-fixtures-group') }
   let(:project) { create(:project_empty_repo, namespace: group, path: 'labels-project') }
 
   let!(:project_label_bug) { create(:label, project: project, title: 'bug', color: '#FF0000') }

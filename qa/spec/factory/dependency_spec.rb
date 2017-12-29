@@ -1,5 +1,5 @@
 describe QA::Factory::Dependency do
-  let(:dependency) { spy('dependency' ) }
+  let(:dependency) { spy('dependency') }
   let(:factory) { spy('factory') }
   let(:block) { spy('block') }
 

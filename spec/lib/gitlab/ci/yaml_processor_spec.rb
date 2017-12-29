@@ -1177,7 +1177,7 @@ module Gitlab
           end
 
           context 'without matching job' do
-            let(:close_review) { nil  }
+            let(:close_review) { nil }
 
             it 'raises error' do
               expect { builds }.to raise_error('review job: on_stop job close_review is not defined')
@@ -1224,7 +1224,7 @@ module Gitlab
         subject { Gitlab::Ci::YamlProcessor.new(YAML.dump(config)) }
 
         context 'no dependencies' do
-          let(:dependencies) { }
+          let(:dependencies) {}
 
           it { expect { subject }.not_to raise_error }
         end
@@ -1394,11 +1394,11 @@ EOT
 
       describe "Error handling" do
         it "fails to parse YAML" do
-          expect {Gitlab::Ci::YamlProcessor.new("invalid: yaml: test")}.to raise_error(Psych::SyntaxError)
+          expect { Gitlab::Ci::YamlProcessor.new("invalid: yaml: test") }.to raise_error(Psych::SyntaxError)
         end
 
         it "indicates that object is invalid" do
-          expect {Gitlab::Ci::YamlProcessor.new("invalid_yaml")}.to raise_error(Gitlab::Ci::YamlProcessor::ValidationError)
+          expect { Gitlab::Ci::YamlProcessor.new("invalid_yaml") }.to raise_error(Gitlab::Ci::YamlProcessor::ValidationError)
         end
 
         it "returns errors if tags parameter is invalid" do

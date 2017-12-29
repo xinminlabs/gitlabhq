@@ -10,21 +10,21 @@ describe 'CycleAnalytics#issue' do
 
   generate_cycle_analytics_spec(
     phase: :issue,
-    data_fn: -> (context) { { issue: context.build(:issue, project: context.project) } },
-    start_time_conditions: [["issue created", -> (context, data) { data[:issue].save }]],
+    data_fn: ->(context) { { issue: context.build(:issue, project: context.project) } },
+    start_time_conditions: [["issue created", ->(context, data) { data[:issue].save }]],
     end_time_conditions:   [["issue associated with a milestone",
-                             -> (context, data) do
+                             ->(context, data) do
                                if data[:issue].persisted?
                                  data[:issue].update(milestone: context.create(:milestone, project: context.project))
                                end
                              end],
                             ["list label added to issue",
-                             -> (context, data) do
+                             ->(context, data) do
                                if data[:issue].persisted?
                                  data[:issue].update(label_ids: [context.create(:label, lists: [context.create(:list)]).id])
                                end
                              end]],
-    post_fn: -> (context, data) do
+    post_fn: ->(context, data) do
       if data[:issue].persisted?
         context.create_merge_request_closing_issue(data[:issue].reload)
         context.merge_merge_requests_closing_issue(data[:issue])

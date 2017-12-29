@@ -37,7 +37,7 @@ describe Ci::RetryBuildService do
       create(:ci_build, :failed, :artifacts, :expired, :erased,
              :queued, :coverage, :tags, :allowed_to_fail, :on_tag,
              :triggered, :trace, :teardown_environment,
-             description: 'my-job', stage: 'test',  pipeline: pipeline,
+             description: 'my-job', stage: 'test', pipeline: pipeline,
              auto_canceled_by: create(:ci_empty_pipeline, project: project)) do |build|
                ##
                # TODO, workaround for FactoryBot limitation when having both

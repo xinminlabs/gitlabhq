@@ -190,7 +190,7 @@ describe API::V3::Users do
   end
 
   describe 'PUT /users/:id/unblock' do
-    let(:blocked_user)  { create(:user, state: 'blocked') }
+    let(:blocked_user) { create(:user, state: 'blocked') }
     before { admin }
 
     it 'unblocks existing user' do

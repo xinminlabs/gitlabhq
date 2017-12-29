@@ -15,7 +15,7 @@ class Route < ActiveRecord::Base
   after_update :create_redirect_for_old_path
   after_update :rename_descendants
 
-  scope :inside_path, -> (path) { where('routes.path LIKE ?', "#{sanitize_sql_like(path)}/%") }
+  scope :inside_path, ->(path) { where('routes.path LIKE ?', "#{sanitize_sql_like(path)}/%") }
 
   def rename_descendants
     return unless path_changed? || name_changed?

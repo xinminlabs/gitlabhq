@@ -20,7 +20,7 @@ describe Mattermost::Session, type: :request do
 
   describe '#with session' do
     let(:location) { 'http://location.tld' }
-    let(:cookie_header) {'MMOAUTH=taskik8az7rq8k6rkpuas7htia; Path=/;'}
+    let(:cookie_header) { 'MMOAUTH=taskik8az7rq8k6rkpuas7htia; Path=/;' }
     let!(:stub) do
       WebMock.stub_request(:get, "#{mattermost_url}/api/v3/oauth/gitlab/login")
         .to_return(headers: { 'location' => location, 'Set-Cookie' => cookie_header }, status: 307)

@@ -4,7 +4,7 @@ describe Projects::ServicesController, '(JavaScript fixtures)', type: :controlle
   include JavaScriptFixturesHelpers
 
   let(:admin)     { create(:admin) }
-  let(:namespace) { create(:namespace, name: 'frontend-fixtures' )}
+  let(:namespace) { create(:namespace, name: 'frontend-fixtures') }
   let(:project)   { create(:project_empty_repo, namespace: namespace, path: 'services-project') }
   let!(:service)  { create(:custom_issue_tracker_service, project: project, title: 'Custom Issue Tracker') }
 

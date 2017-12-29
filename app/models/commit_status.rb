@@ -36,7 +36,7 @@ class CommitStatus < ActiveRecord::Base
   scope :ordered, -> { order(:name) }
   scope :latest_ordered, -> { latest.ordered.includes(project: :namespace) }
   scope :retried_ordered, -> { retried.ordered.includes(project: :namespace) }
-  scope :after_stage, -> (index) { where('stage_idx > ?', index) }
+  scope :after_stage, ->(index) { where('stage_idx > ?', index) }
 
   enum failure_reason: {
     unknown_failure: nil,

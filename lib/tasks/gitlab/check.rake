@@ -12,7 +12,7 @@ namespace :gitlab do
 
   namespace :app do
     desc 'GitLab | Check the configuration of the GitLab Rails app'
-    task check: :environment  do
+    task check: :environment do
       warn_user_is_not_gitlab
 
       checks = [
@@ -43,7 +43,7 @@ namespace :gitlab do
 
   namespace :gitlab_shell do
     desc "GitLab | Check the configuration of GitLab Shell"
-    task check: :environment  do
+    task check: :environment do
       warn_user_is_not_gitlab
       start_checking "GitLab Shell"
 
@@ -249,7 +249,7 @@ namespace :gitlab do
 
   namespace :sidekiq do
     desc "GitLab | Check the configuration of Sidekiq"
-    task check: :environment  do
+    task check: :environment do
       warn_user_is_not_gitlab
       start_checking "Sidekiq"
 
@@ -307,7 +307,7 @@ namespace :gitlab do
 
   namespace :incoming_email do
     desc "GitLab | Check the configuration of Reply by email"
-    task check: :environment  do
+    task check: :environment do
       warn_user_is_not_gitlab
 
       if Gitlab.config.incoming_email.enabled

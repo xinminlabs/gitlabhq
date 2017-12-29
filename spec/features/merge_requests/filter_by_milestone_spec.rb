@@ -5,7 +5,7 @@ feature 'Merge Request filtering by Milestone' do
   include MergeRequestHelpers
 
   let(:project)   { create(:project, :public, :repository) }
-  let!(:user)     { create(:user)}
+  let!(:user)     { create(:user) }
   let(:milestone) { create(:milestone, project: project) }
 
   def filter_by_milestone(title)

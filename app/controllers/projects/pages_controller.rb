@@ -14,7 +14,7 @@ class Projects::PagesController < Projects::ApplicationController
     project.pages_domains.destroy_all
 
     respond_to do |format|
-      format.html  do
+      format.html do
         redirect_to project_pages_path(@project),
                     status: 302,
                     notice: 'Pages were removed'

@@ -40,7 +40,7 @@ describe Clusters::Gcp::VerifyProvisionStatusService do
           {
             "status": 'RUNNING',
             "startTime": 1.minute.ago.strftime("%FT%TZ")
-          } )
+          })
       end
 
       it_behaves_like 'continue_creation'
@@ -52,7 +52,7 @@ describe Clusters::Gcp::VerifyProvisionStatusService do
             {
               "status": 'RUNNING',
               "startTime": 30.minutes.ago.strftime("%FT%TZ")
-            } )
+            })
         end
 
         it_behaves_like 'error'
@@ -66,7 +66,7 @@ describe Clusters::Gcp::VerifyProvisionStatusService do
           {
             "status": 'PENDING',
             "startTime": 1.minute.ago.strftime("%FT%TZ")
-          } )
+          })
       end
 
       it_behaves_like 'continue_creation'
@@ -78,7 +78,7 @@ describe Clusters::Gcp::VerifyProvisionStatusService do
           gcp_project_id, zone, operation_id,
           {
             "status": 'DONE'
-          } )
+          })
       end
 
       it_behaves_like 'finalize_creation'
@@ -90,7 +90,7 @@ describe Clusters::Gcp::VerifyProvisionStatusService do
           gcp_project_id, zone, operation_id,
           {
             "status": 'unexpected'
-          } )
+          })
       end
 
       it_behaves_like 'error'

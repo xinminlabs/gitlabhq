@@ -10,10 +10,10 @@ module Gitlab
 
     included do
       scope :public_only,               -> { where(visibility_level: PUBLIC) }
-      scope :public_and_internal_only,  -> { where(visibility_level: [PUBLIC, INTERNAL] ) }
+      scope :public_and_internal_only,  -> { where(visibility_level: [PUBLIC, INTERNAL]) }
       scope :non_public_only,           -> { where.not(visibility_level: PUBLIC) }
 
-      scope :public_to_user, -> (user = nil) do
+      scope :public_to_user, ->(user = nil) do
         where(visibility_level: VisibilityLevel.levels_for_user(user))
       end
     end

@@ -4,7 +4,7 @@ describe 'New issue', :js do
   include StubENV
 
   let(:project) { create(:project, :public) }
-  let(:user)    { create(:user)}
+  let(:user)    { create(:user) }
 
   before do
     stub_env('IN_MEMORY_APPLICATION_SETTINGS', 'false')

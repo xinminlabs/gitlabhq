@@ -101,8 +101,8 @@ describe Gitlab::Database do
         expect(described_class).to receive(:postgresql?).and_return(true)
       end
 
-      it { expect(described_class.nulls_last_order('column', 'ASC')).to eq 'column ASC NULLS LAST'}
-      it { expect(described_class.nulls_last_order('column', 'DESC')).to eq 'column DESC NULLS LAST'}
+      it { expect(described_class.nulls_last_order('column', 'ASC')).to eq 'column ASC NULLS LAST' }
+      it { expect(described_class.nulls_last_order('column', 'DESC')).to eq 'column DESC NULLS LAST' }
     end
 
     context 'when using MySQL' do
@@ -110,8 +110,8 @@ describe Gitlab::Database do
         expect(described_class).to receive(:postgresql?).and_return(false)
       end
 
-      it { expect(described_class.nulls_last_order('column', 'ASC')).to eq 'column IS NULL, column ASC'}
-      it { expect(described_class.nulls_last_order('column', 'DESC')).to eq 'column DESC'}
+      it { expect(described_class.nulls_last_order('column', 'ASC')).to eq 'column IS NULL, column ASC' }
+      it { expect(described_class.nulls_last_order('column', 'DESC')).to eq 'column DESC' }
     end
   end
 
@@ -121,8 +121,8 @@ describe Gitlab::Database do
         expect(described_class).to receive(:postgresql?).and_return(true)
       end
 
-      it { expect(described_class.nulls_first_order('column', 'ASC')).to eq 'column ASC NULLS FIRST'}
-      it { expect(described_class.nulls_first_order('column', 'DESC')).to eq 'column DESC NULLS FIRST'}
+      it { expect(described_class.nulls_first_order('column', 'ASC')).to eq 'column ASC NULLS FIRST' }
+      it { expect(described_class.nulls_first_order('column', 'DESC')).to eq 'column DESC NULLS FIRST' }
     end
 
     context 'when using MySQL' do
@@ -130,8 +130,8 @@ describe Gitlab::Database do
         expect(described_class).to receive(:postgresql?).and_return(false)
       end
 
-      it { expect(described_class.nulls_first_order('column', 'ASC')).to eq 'column ASC'}
-      it { expect(described_class.nulls_first_order('column', 'DESC')).to eq 'column IS NULL, column DESC'}
+      it { expect(described_class.nulls_first_order('column', 'ASC')).to eq 'column ASC' }
+      it { expect(described_class.nulls_first_order('column', 'DESC')).to eq 'column IS NULL, column DESC' }
     end
   end
 

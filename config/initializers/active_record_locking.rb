@@ -48,7 +48,7 @@ module ActiveRecord
 
         # If something went wrong, revert the version.
         rescue Exception
-          send(lock_col + '=', previous_lock_value)  # rubocop:disable GitlabSecurity/PublicSend
+          send(lock_col + '=', previous_lock_value) # rubocop:disable GitlabSecurity/PublicSend
           raise
         end
       end

@@ -94,7 +94,7 @@ class Project < ActiveRecord::Base
   alias_method :parent, :namespace
   alias_attribute :parent_id, :namespace_id
 
-  has_one :last_event, -> {order 'events.created_at DESC'}, class_name: 'Event'
+  has_one :last_event, -> { order 'events.created_at DESC' }, class_name: 'Event'
   has_many :boards, before_add: :validate_board_limit
 
   # Project services

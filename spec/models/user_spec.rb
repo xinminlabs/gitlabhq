@@ -952,8 +952,8 @@ describe User do
   describe '.search_with_secondary_emails' do
     delegate :search_with_secondary_emails, to: :described_class
 
-    let!(:user) { create(:user, name: 'John Doe', username: 'john.doe', email: 'john.doe@example.com' ) }
-    let!(:another_user) { create(:user, name: 'Albert Smith', username: 'albert.smith', email: 'albert.smith@example.com' ) }
+    let!(:user) { create(:user, name: 'John Doe', username: 'john.doe', email: 'john.doe@example.com') }
+    let!(:another_user) { create(:user, name: 'Albert Smith', username: 'albert.smith', email: 'albert.smith@example.com') }
     let!(:email) do
       create(:email, user: another_user, email: 'alias@example.com')
     end

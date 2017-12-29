@@ -6,7 +6,7 @@ feature 'Issue Sidebar' do
   let(:group) { create(:group, :nested) }
   let(:project) { create(:project, :public, namespace: group) }
   let(:issue) { create(:issue, project: project) }
-  let!(:user) { create(:user)}
+  let!(:user) { create(:user) }
   let!(:label) { create(:label, project: project, title: 'bug') }
 
   before do

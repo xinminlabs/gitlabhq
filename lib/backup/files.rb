@@ -8,7 +8,7 @@ module Backup
       @name = name
       @app_files_dir = File.realpath(app_files_dir)
       @files_parent_dir = File.realpath(File.join(@app_files_dir, '..'))
-      @backup_files_dir = File.join(Gitlab.config.backup.path, File.basename(@app_files_dir) )
+      @backup_files_dir = File.join(Gitlab.config.backup.path, File.basename(@app_files_dir))
       @backup_tarball = File.join(Gitlab.config.backup.path, name + '.tar.gz')
     end
 

@@ -183,7 +183,7 @@ describe Gitlab::GithubImport::Client do
 
       expect(client).to receive(:requests_remaining?).and_return(true)
 
-      client.with_rate_limit { }
+      client.with_rate_limit {}
     end
 
     it 'ignores rate limiting when disabled' do

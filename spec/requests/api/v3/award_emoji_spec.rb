@@ -142,7 +142,7 @@ describe API::V3::AwardEmoji do
   end
 
   describe "POST /projects/:id/awardable/:awardable_id/award_emoji" do
-    let(:issue2)  { create(:issue, project: project, author: user) }
+    let(:issue2) { create(:issue, project: project, author: user) }
 
     context "on an issue" do
       it "creates a new award emoji" do

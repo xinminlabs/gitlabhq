@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe GroupsFinder do
   describe '#execute' do
-    let(:user)            { create(:user) }
+    let(:user) { create(:user) }
 
     context 'root level groups' do
       let!(:private_group)  { create(:group, :private) }

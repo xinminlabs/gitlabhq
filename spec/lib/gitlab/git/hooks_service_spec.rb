@@ -20,7 +20,7 @@ describe Gitlab::Git::HooksService, seed_helper: true do
         expect(hook).to receive(:trigger).with(gl_id, gl_username, blankrev, newrev, ref)
           .exactly(3).times.and_return([true, nil])
 
-        service.execute(user, repository, blankrev, newrev, ref) { }
+        service.execute(user, repository, blankrev, newrev, ref) {}
       end
     end
 

@@ -340,7 +340,7 @@ describe API::V3::Projects do
       it 'does not create new project and respond with 403' do
         allow_any_instance_of(User).to receive(:projects_limit_left).and_return(0)
         expect { post v3_api('/projects', user2), name: 'foo' }
-          .to change {Project.count}.by(0)
+          .to change { Project.count }.by(0)
         expect(response).to have_gitlab_http_status(403)
       end
     end
@@ -523,7 +523,7 @@ describe API::V3::Projects do
     before { admin }
 
     it 'should create new project without path and return 201' do
-      expect { post v3_api("/projects/user/#{user.id}", admin), name: 'foo' }.to change {Project.count}.by(1)
+      expect { post v3_api("/projects/user/#{user.id}", admin), name: 'foo' }.to change { Project.count }.by(1)
       expect(response).to have_gitlab_http_status(201)
     end
 
@@ -1159,7 +1159,7 @@ describe API::V3::Projects do
   end
 
   describe 'GET /projects/search/:query' do
-    let!(:query)            { 'query'}
+    let!(:query)            { 'query' }
     let!(:search)           { create(:project, name: query, creator_id: user.id, namespace: user.namespace) }
     let!(:pre)              { create(:project, name: "pre_#{query}", creator_id: user.id, namespace: user.namespace) }
     let!(:post)             { create(:project, name: "#{query}_post", creator_id: user.id, namespace: user.namespace) }

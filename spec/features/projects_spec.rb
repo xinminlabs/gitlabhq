@@ -4,7 +4,7 @@ feature 'Project' do
   include ProjectForksHelper
 
   describe 'creating from template' do
-    let(:user)    { create(:user) }
+    let(:user) { create(:user) }
     let(:template) { Gitlab::ProjectTemplate.find(:rails) }
 
     before do
@@ -80,7 +80,7 @@ feature 'Project' do
 
   describe 'showing information about source of a project fork' do
     let(:user) { create(:user) }
-    let(:base_project)  { create(:project, :public, :repository) }
+    let(:base_project) { create(:project, :public, :repository) }
     let(:forked_project) { fork_project(base_project, user, repository: true) }
 
     before do
@@ -138,7 +138,7 @@ feature 'Project' do
     end
 
     it 'removes a project' do
-      expect { remove_with_confirm('Remove project', project.path) }.to change {Project.count}.by(-1)
+      expect { remove_with_confirm('Remove project', project.path) }.to change { Project.count }.by(-1)
       expect(page).to have_content "Project 'test / project1' is in the process of being deleted."
       expect(Project.all.count).to be_zero
       expect(project.issues).to be_empty

@@ -45,17 +45,17 @@ class PipelineEntity < Grape::Entity
   end
 
   expose :commit, using: CommitEntity
-  expose :yaml_errors, if: -> (pipeline, _) { pipeline.has_yaml_errors? }
+  expose :yaml_errors, if: ->(pipeline, _) { pipeline.has_yaml_errors? }
 
-  expose :failure_reason, if: -> (pipeline, _) { pipeline.failure_reason? } do |pipeline|
+  expose :failure_reason, if: ->(pipeline, _) { pipeline.failure_reason? } do |pipeline|
     pipeline.present.failure_reason
   end
 
-  expose :retry_path, if: -> (*) { can_retry? }  do |pipeline|
+  expose :retry_path, if: ->(*) { can_retry? } do |pipeline|
     retry_project_pipeline_path(pipeline.project, pipeline)
   end
 
-  expose :cancel_path, if: -> (*) { can_cancel? } do |pipeline|
+  expose :cancel_path, if: ->(*) { can_cancel? } do |pipeline|
     cancel_project_pipeline_path(pipeline.project, pipeline)
   end
 

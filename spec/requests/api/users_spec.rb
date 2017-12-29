@@ -9,8 +9,8 @@ describe API::Users do
   let(:omniauth_user) { create(:omniauth_user) }
   let(:ldap_user) { create(:omniauth_user, provider: 'ldapmain') }
   let(:ldap_blocked_user) { create(:omniauth_user, provider: 'ldapmain', state: 'ldap_blocked') }
-  let(:not_existing_user_id) { (User.maximum('id') || 0 ) + 10 }
-  let(:not_existing_pat_id) { (PersonalAccessToken.maximum('id') || 0 ) + 10 }
+  let(:not_existing_user_id) { (User.maximum('id') || 0) + 10 }
+  let(:not_existing_pat_id) { (PersonalAccessToken.maximum('id') || 0) + 10 }
 
   describe 'GET /users' do
     context "when unauthenticated" do
@@ -1262,7 +1262,7 @@ describe API::Users do
         delete api("/user/keys/#{key.id}", user)
 
         expect(response).to have_gitlab_http_status(204)
-      end.to change { user.keys.count}.by(-1)
+      end.to change { user.keys.count }.by(-1)
     end
 
     it_behaves_like '412 response' do
@@ -1396,7 +1396,7 @@ describe API::Users do
         post api("/user/gpg_keys/#{gpg_key.id}/revoke", user)
 
         expect(response).to have_gitlab_http_status(:accepted)
-      end.to change { user.gpg_keys.count}.by(-1)
+      end.to change { user.gpg_keys.count }.by(-1)
     end
 
     it 'returns 404 if key ID not found' do
@@ -1431,7 +1431,7 @@ describe API::Users do
         delete api("/user/gpg_keys/#{gpg_key.id}", user)
 
         expect(response).to have_gitlab_http_status(204)
-      end.to change { user.gpg_keys.count}.by(-1)
+      end.to change { user.gpg_keys.count }.by(-1)
     end
 
     it 'returns 404 if key ID not found' do
@@ -1556,7 +1556,7 @@ describe API::Users do
         delete api("/user/emails/#{email.id}", user)
 
         expect(response).to have_gitlab_http_status(204)
-      end.to change { user.emails.count}.by(-1)
+      end.to change { user.emails.count }.by(-1)
     end
 
     it_behaves_like '412 response' do
@@ -1615,7 +1615,7 @@ describe API::Users do
   end
 
   describe 'POST /users/:id/unblock' do
-    let(:blocked_user)  { create(:user, state: 'blocked') }
+    let(:blocked_user) { create(:user, state: 'blocked') }
 
     before do
       admin

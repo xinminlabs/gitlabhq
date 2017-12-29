@@ -10,7 +10,7 @@ describe SystemNoteMetadata do
 
     context 'when action type is invalid' do
       subject do
-        build(:system_note_metadata, note: build(:note), action: 'invalid_type' )
+        build(:system_note_metadata, note: build(:note), action: 'invalid_type')
       end
 
       it { is_expected.to be_invalid }
@@ -18,7 +18,7 @@ describe SystemNoteMetadata do
 
     context 'when action type is valid' do
       subject do
-        build(:system_note_metadata, note: build(:note), action: 'merge' )
+        build(:system_note_metadata, note: build(:note), action: 'merge')
       end
 
       it { is_expected.to be_valid }

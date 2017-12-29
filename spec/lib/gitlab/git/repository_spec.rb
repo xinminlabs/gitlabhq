@@ -99,7 +99,7 @@ describe Gitlab::Git::Repository, seed_helper: true do
   end
 
   describe "#rugged" do
-    describe 'when storage is broken', :broken_storage  do
+    describe 'when storage is broken', :broken_storage do
       it 'raises a storage exception when storage is not available' do
         broken_repo = described_class.new('broken', 'a/path.git', '')
 
@@ -252,7 +252,7 @@ describe Gitlab::Git::Repository, seed_helper: true do
   end
 
   describe '#archive_prefix' do
-    let(:project_name) { 'project-name'}
+    let(:project_name) { 'project-name' }
 
     before do
       expect(repository).to receive(:name).once.and_return(project_name)
@@ -450,7 +450,7 @@ describe Gitlab::Git::Repository, seed_helper: true do
       end
     end
 
-    context 'when Gitaly commit_count feature is disabled', :skip_gitaly_mock  do
+    context 'when Gitaly commit_count feature is disabled', :skip_gitaly_mock do
       it_behaves_like 'simple commit counting'
     end
   end
@@ -541,11 +541,11 @@ describe Gitlab::Git::Repository, seed_helper: true do
 
       it "should fail if we create an existing branch" do
         repository.create_branch('duplicated_branch', 'master')
-        expect {repository.create_branch('duplicated_branch', 'master')}.to raise_error("Branch duplicated_branch already exists")
+        expect { repository.create_branch('duplicated_branch', 'master') }.to raise_error("Branch duplicated_branch already exists")
       end
 
       it "should fail if we create a branch from a non existing ref" do
-        expect {repository.create_branch('branch_based_in_wrong_ref', 'master_2_the_revenge')}.to raise_error("Invalid reference master_2_the_revenge")
+        expect { repository.create_branch('branch_based_in_wrong_ref', 'master_2_the_revenge') }.to raise_error("Invalid reference master_2_the_revenge")
       end
     end
 

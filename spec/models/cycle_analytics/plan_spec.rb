@@ -10,25 +10,25 @@ describe 'CycleAnalytics#plan' do
 
   generate_cycle_analytics_spec(
     phase: :plan,
-    data_fn: -> (context) do
+    data_fn: ->(context) do
       {
         issue: context.create(:issue, project: context.project),
         branch_name: context.generate(:branch)
       }
     end,
     start_time_conditions: [["issue associated with a milestone",
-                             -> (context, data) do
+                             ->(context, data) do
                                data[:issue].update(milestone: context.create(:milestone, project: context.project))
                              end],
                             ["list label added to issue",
-                             -> (context, data) do
+                             ->(context, data) do
                                data[:issue].update(label_ids: [context.create(:label, lists: [context.create(:list)]).id])
                              end]],
     end_time_conditions:   [["issue mentioned in a commit",
-                             -> (context, data) do
+                             ->(context, data) do
                                context.create_commit_referencing_issue(data[:issue], branch_name: data[:branch_name])
                              end]],
-    post_fn: -> (context, data) do
+    post_fn: ->(context, data) do
       context.create_merge_request_closing_issue(data[:issue], source_branch: data[:branch_name])
       context.merge_merge_requests_closing_issue(data[:issue])
     end)

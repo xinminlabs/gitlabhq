@@ -58,7 +58,7 @@ describe Project do
     it { is_expected.to have_many(:commit_statuses) }
     it { is_expected.to have_many(:pipelines) }
     it { is_expected.to have_many(:builds) }
-    it { is_expected.to have_many(:build_trace_section_names)}
+    it { is_expected.to have_many(:build_trace_section_names) }
     it { is_expected.to have_many(:runner_projects) }
     it { is_expected.to have_many(:runners) }
     it { is_expected.to have_many(:active_runners) }
@@ -717,7 +717,7 @@ describe Project do
 
       expect do
         project.cache_has_external_issue_tracker
-      end.to change { project.has_external_issue_tracker}.to(true)
+      end.to change { project.has_external_issue_tracker }.to(true)
     end
 
     it 'stores false if there is no external_issue_tracker' do
@@ -726,7 +726,7 @@ describe Project do
 
       expect do
         project.cache_has_external_issue_tracker
-      end.to change { project.has_external_issue_tracker}.to(false)
+      end.to change { project.has_external_issue_tracker }.to(false)
     end
 
     it 'does not cache data when in a read-only GitLab instance' do
@@ -747,7 +747,7 @@ describe Project do
 
       expect do
         project.cache_has_external_wiki
-      end.to change { project.has_external_wiki}.to(true)
+      end.to change { project.has_external_wiki }.to(true)
     end
 
     it 'stores false if there is no external_wikis' do
@@ -756,7 +756,7 @@ describe Project do
 
       expect do
         project.cache_has_external_wiki
-      end.to change { project.has_external_wiki}.to(false)
+      end.to change { project.has_external_wiki }.to(false)
     end
 
     it 'does not cache data when in a read-only GitLab instance' do
@@ -3080,7 +3080,7 @@ describe Project do
   end
 
   describe '#remove_import_jid', :clean_gitlab_redis_cache do
-    let(:project) {  }
+    let(:project) {}
 
     context 'without an import JID' do
       it 'does nothing' do

@@ -198,7 +198,7 @@ describe 'gitlab:app namespace rake task' do
       let(:gitaly_address) { Gitlab.config.repositories.storages.default.gitaly_address }
       let(:storages) do
         {
-          'default' => { 'path' => Settings.absolute('tmp/tests/default_storage'), 'gitaly_address' => gitaly_address  },
+          'default' => { 'path' => Settings.absolute('tmp/tests/default_storage'), 'gitaly_address' => gitaly_address },
           'test_second_storage' => { 'path' => Settings.absolute('tmp/tests/custom_storage'), 'gitaly_address' => gitaly_address }
         }
       end

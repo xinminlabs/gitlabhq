@@ -16,7 +16,7 @@ module Gitlab
 
       def get_response
         scheme, *other_parts = URI.split(@options.target)
-        socket_path = if  scheme == 'unix'
+        socket_path = if scheme == 'unix'
                         other_parts.compact.join
                       end
 

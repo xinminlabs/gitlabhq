@@ -28,7 +28,7 @@ describe MigrateIssuesToGhostUser, :migration do
       end
 
       it 'does not change issues authored by an existing user' do
-        expect { schema_migrate_up! }.not_to change { issues.second.reload.author_id}
+        expect { schema_migrate_up! }.not_to change { issues.second.reload.author_id }
       end
     end
 
@@ -44,7 +44,7 @@ describe MigrateIssuesToGhostUser, :migration do
       end
 
       it 'does not change issues authored by an existing user' do
-        expect { schema_migrate_up! }.not_to change { issues.second.reload.author_id}
+        expect { schema_migrate_up! }.not_to change { issues.second.reload.author_id }
       end
     end
   end

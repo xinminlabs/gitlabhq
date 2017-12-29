@@ -41,7 +41,7 @@ describe BlobHelper do
 
     context 'diff highlighting' do
       let(:blob_name) { 'test.diff' }
-      let(:blob_content) { "+aaa\n+bbb\n- ccc\n ddd\n"}
+      let(:blob_content) { "+aaa\n+bbb\n- ccc\n ddd\n" }
       let(:expected) do
         %q(<pre class="code highlight"><code><span id="LC1" class="line" lang="diff"><span class="gi">+aaa</span></span>
 <span id="LC2" class="line" lang="diff"><span class="gi">+bbb</span></span>
@@ -68,7 +68,7 @@ describe BlobHelper do
   end
 
   describe "#edit_blob_link" do
-    let(:namespace) { create(:namespace, name: 'gitlab' )}
+    let(:namespace) { create(:namespace, name: 'gitlab') }
     let(:project) { create(:project, :repository, namespace: namespace) }
 
     before do

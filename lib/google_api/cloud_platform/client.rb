@@ -60,7 +60,7 @@ module GoogleApi
                 "machine_type": machine_type
               }
             }
-          } )
+          })
 
         service.create_cluster(project_id, zone, request_body, options: user_agent_header)
       end

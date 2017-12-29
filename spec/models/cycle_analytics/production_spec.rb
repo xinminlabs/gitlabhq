@@ -10,14 +10,14 @@ describe 'CycleAnalytics#production' do
 
   generate_cycle_analytics_spec(
     phase: :production,
-    data_fn: -> (context) { { issue: context.build(:issue, project: context.project) } },
-    start_time_conditions: [["issue is created", -> (context, data) { data[:issue].save }]],
+    data_fn: ->(context) { { issue: context.build(:issue, project: context.project) } },
+    start_time_conditions: [["issue is created", ->(context, data) { data[:issue].save }]],
     before_end_fn: lambda do |context, data|
       context.create_merge_request_closing_issue(data[:issue])
       context.merge_merge_requests_closing_issue(data[:issue])
     end,
     end_time_conditions:
-      [["merge request that closes issue is deployed to production", -> (context, data) { context.deploy_master }],
+      [["merge request that closes issue is deployed to production", ->(context, data) { context.deploy_master }],
        ["production deploy happens after merge request is merged (along with other changes)",
         lambda do |context, data|
           # Make other changes on master

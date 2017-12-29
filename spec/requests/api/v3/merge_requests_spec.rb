@@ -11,7 +11,7 @@ describe API::MergeRequests do
   let!(:merge_request) { create(:merge_request, :simple, author: user, assignee: user, source_project: project, title: "Test", created_at: base_time) }
   let!(:merge_request_closed) { create(:merge_request, state: "closed", author: user, assignee: user, source_project: project, title: "Closed test", created_at: base_time + 1.second) }
   let!(:merge_request_merged) { create(:merge_request, state: "merged", author: user, assignee: user, source_project: project, title: "Merged test", created_at: base_time + 2.seconds, merge_commit_sha: '9999999999999999999999999999999999999999') }
-  let(:milestone)   { create(:milestone, title: '1.0.0', project: project) }
+  let(:milestone) { create(:milestone, title: '1.0.0', project: project) }
 
   before do
     project.add_reporter(user)
@@ -315,7 +315,7 @@ describe API::MergeRequests do
     context 'forked projects' do
       let!(:user2) { create(:user) }
       let!(:forked_project) { fork_project(project, user2, repository: true) }
-      let!(:unrelated_project) { create(:project,  namespace: create(:user).namespace, creator_id: user2.id) }
+      let!(:unrelated_project) { create(:project, namespace: create(:user).namespace, creator_id: user2.id) }
 
       before do
         forked_project.add_reporter(user2)

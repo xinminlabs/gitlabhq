@@ -44,7 +44,7 @@ module Gitlab
       def load_blame_by_shelling_out
         cmd = %W(#{Gitlab.config.git.bin_path} --git-dir=#{@repo.path} blame -p #{@sha} -- #{@path})
         # Read in binary mode to ensure ASCII-8BIT
-        IO.popen(cmd, 'rb') {|io| io.read }
+        IO.popen(cmd, 'rb') { |io| io.read }
       end
 
       def process_raw_blame(output)

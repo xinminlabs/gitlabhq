@@ -8,7 +8,7 @@ namespace :gitlab do
       remove_flag = ENV['REMOVE']
 
       namespaces  = Namespace.pluck(:path)
-      namespaces << HASHED_REPOSITORY_NAME  # add so that it will be ignored
+      namespaces << HASHED_REPOSITORY_NAME # add so that it will be ignored
       Gitlab.config.repositories.storages.each do |name, repository_storage|
         git_base_path = repository_storage['path']
         all_dirs = Dir.glob(git_base_path + '/*')
@@ -47,7 +47,7 @@ namespace :gitlab do
     end
 
     desc "GitLab | Cleanup | Clean repositories"
-    task repos: :environment  do
+    task repos: :environment do
       warn_user_is_not_gitlab
 
       move_suffix = "+orphaned+#{Time.now.to_i}"
@@ -76,7 +76,7 @@ namespace :gitlab do
     end
 
     desc "GitLab | Cleanup | Block users that have been removed in LDAP"
-    task block_removed_ldap_users: :environment  do
+    task block_removed_ldap_users: :environment do
       warn_user_is_not_gitlab
       block_flag = ENV['BLOCK']
 

@@ -1,7 +1,7 @@
 require './spec/support/sidekiq'
 
 Gitlab::Seeder.quiet do
-  content =<<eos
+  content = <<eos
 class Member < ActiveRecord::Base
   include Notifiable
   include Gitlab::Access

@@ -14,7 +14,7 @@ describe API::Snippets do
       expect(response).to have_gitlab_http_status(200)
       expect(response).to include_pagination_headers
       expect(json_response).to be_an Array
-      expect(json_response.map { |snippet| snippet['id']} ).to contain_exactly(
+      expect(json_response.map { |snippet| snippet['id'] }).to contain_exactly(
         public_snippet.id,
         internal_snippet.id,
         private_snippet.id)
@@ -49,13 +49,13 @@ describe API::Snippets do
       expect(response).to have_gitlab_http_status(200)
       expect(response).to include_pagination_headers
       expect(json_response).to be_an Array
-      expect(json_response.map { |snippet| snippet['id']} ).to contain_exactly(
+      expect(json_response.map { |snippet| snippet['id'] }).to contain_exactly(
         public_snippet.id,
         public_snippet_other.id)
-      expect(json_response.map { |snippet| snippet['web_url']} ).to include(
+      expect(json_response.map { |snippet| snippet['web_url'] }).to include(
         "http://localhost/snippets/#{public_snippet.id}",
         "http://localhost/snippets/#{public_snippet_other.id}")
-      expect(json_response.map { |snippet| snippet['raw_url']} ).to include(
+      expect(json_response.map { |snippet| snippet['raw_url'] }).to include(
         "http://localhost/snippets/#{public_snippet.id}/raw",
         "http://localhost/snippets/#{public_snippet_other.id}/raw")
     end

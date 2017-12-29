@@ -219,7 +219,7 @@ describe Banzai::Filter::MergeRequestReferenceFilter do
     it 'links to a valid reference' do
       reference = "#{project.full_path}!#{merge.iid}"
 
-      result = reference_filter("See #{reference}", { project: nil, group: create(:group) } )
+      result = reference_filter("See #{reference}", { project: nil, group: create(:group) })
 
       expect(result.css('a').first.attr('href')).to eq(urls.project_merge_request_url(project, merge))
     end

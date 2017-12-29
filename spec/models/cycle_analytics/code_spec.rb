@@ -11,16 +11,16 @@ describe 'CycleAnalytics#code' do
   context 'with deployment' do
     generate_cycle_analytics_spec(
       phase: :code,
-      data_fn: -> (context) { { issue: context.create(:issue, project: context.project) } },
+      data_fn: ->(context) { { issue: context.create(:issue, project: context.project) } },
       start_time_conditions: [["issue mentioned in a commit",
-                               -> (context, data) do
+                               ->(context, data) do
                                  context.create_commit_referencing_issue(data[:issue])
                                end]],
       end_time_conditions: [["merge request that closes issue is created",
-                             -> (context, data) do
+                             ->(context, data) do
                                context.create_merge_request_closing_issue(data[:issue])
                              end]],
-      post_fn: -> (context, data) do
+      post_fn: ->(context, data) do
         context.merge_merge_requests_closing_issue(data[:issue])
         context.deploy_master
       end)
@@ -43,16 +43,16 @@ describe 'CycleAnalytics#code' do
   context 'without deployment' do
     generate_cycle_analytics_spec(
       phase: :code,
-      data_fn: -> (context) { { issue: context.create(:issue, project: context.project) } },
+      data_fn: ->(context) { { issue: context.create(:issue, project: context.project) } },
       start_time_conditions: [["issue mentioned in a commit",
-                               -> (context, data) do
+                               ->(context, data) do
                                  context.create_commit_referencing_issue(data[:issue])
                                end]],
       end_time_conditions: [["merge request that closes issue is created",
-                             -> (context, data) do
+                             ->(context, data) do
                                context.create_merge_request_closing_issue(data[:issue])
                              end]],
-      post_fn: -> (context, data) do
+      post_fn: ->(context, data) do
         context.merge_merge_requests_closing_issue(data[:issue])
       end)
 

@@ -343,7 +343,7 @@ module Gitlab
     end
 
     def self.encode_repeated(a)
-      Google::Protobuf::RepeatedField.new(:bytes, a.map { |s| self.encode(s) } )
+      Google::Protobuf::RepeatedField.new(:bytes, a.map { |s| self.encode(s) })
     end
 
     # The default timeout on all Gitaly calls

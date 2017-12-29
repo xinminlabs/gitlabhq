@@ -92,7 +92,7 @@ describe API::ProjectHooks, 'ProjectHooks' do
         post api("/projects/#{project.id}/hooks", user),
           url: "http://example.com", issues_events: true, wiki_page_events: true,
           job_events: true
-      end.to change {project.hooks.count}.by(1)
+      end.to change { project.hooks.count }.by(1)
 
       expect(response).to have_gitlab_http_status(201)
       expect(json_response['url']).to eq('http://example.com')
@@ -113,7 +113,7 @@ describe API::ProjectHooks, 'ProjectHooks' do
 
       expect do
         post api("/projects/#{project.id}/hooks", user), url: "http://example.com", token: token
-      end.to change {project.hooks.count}.by(1)
+      end.to change { project.hooks.count }.by(1)
 
       expect(response).to have_gitlab_http_status(201)
       expect(json_response["url"]).to eq("http://example.com")
@@ -189,7 +189,7 @@ describe API::ProjectHooks, 'ProjectHooks' do
         delete api("/projects/#{project.id}/hooks/#{hook.id}", user)
 
         expect(response).to have_gitlab_http_status(204)
-      end.to change {project.hooks.count}.by(-1)
+      end.to change { project.hooks.count }.by(-1)
     end
 
     it "returns a 404 error when deleting non existent hook" do

@@ -481,7 +481,7 @@ describe Note do
   end
 
   describe '#cache_markdown_field' do
-    let(:html) { '<p>some html</p>'}
+    let(:html) { '<p>some html</p>' }
 
     context 'note for a project snippet' do
       let(:note) { build(:note_on_project_snippet) }

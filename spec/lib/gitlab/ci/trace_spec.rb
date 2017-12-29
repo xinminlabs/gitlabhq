@@ -111,7 +111,7 @@ describe Gitlab::Ci::Trace do
     end
 
     context 'logs contains "section_start"' do
-      let(:log) { "section_start:1506417476:a_section\r\033[0Klooks like a section_start:invalid\nsection_end:1506417477:a_section\r\033[0K"}
+      let(:log) { "section_start:1506417476:a_section\r\033[0Klooks like a section_start:invalid\nsection_end:1506417477:a_section\r\033[0K" }
 
       it "returns only one section" do
         expect(sections).not_to be_empty
@@ -124,7 +124,7 @@ describe Gitlab::Ci::Trace do
     end
 
     context 'missing section_end' do
-      let(:log) { "section_start:1506417476:a_section\r\033[0KSome logs\nNo section_end\n"}
+      let(:log) { "section_start:1506417476:a_section\r\033[0KSome logs\nNo section_end\n" }
 
       it "returns no sections" do
         expect(sections).to be_empty
@@ -132,7 +132,7 @@ describe Gitlab::Ci::Trace do
     end
 
     context 'missing section_start' do
-      let(:log) { "Some logs\nNo section_start\nsection_end:1506417476:a_section\r\033[0K"}
+      let(:log) { "Some logs\nNo section_start\nsection_end:1506417476:a_section\r\033[0K" }
 
       it "returns no sections" do
         expect(sections).to be_empty
@@ -140,7 +140,7 @@ describe Gitlab::Ci::Trace do
     end
 
     context 'inverted section_start section_end' do
-      let(:log) { "section_end:1506417476:a_section\r\033[0Klooks like a section_start:invalid\nsection_start:1506417477:a_section\r\033[0K"}
+      let(:log) { "section_end:1506417476:a_section\r\033[0Klooks like a section_start:invalid\nsection_start:1506417477:a_section\r\033[0K" }
 
       it "returns no sections" do
         expect(sections).to be_empty

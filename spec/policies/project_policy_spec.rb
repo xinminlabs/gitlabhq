@@ -67,7 +67,7 @@ describe ProjectPolicy do
   end
 
   # Used in EE specs
-  let(:additional_guest_permissions)  { [] }
+  let(:additional_guest_permissions) { [] }
   let(:additional_reporter_permissions) { [] }
   let(:additional_master_permissions) { [] }
 

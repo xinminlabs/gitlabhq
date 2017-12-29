@@ -3,12 +3,12 @@ require 'spec_helper'
 describe Gitlab::RequestContext do
   describe '#client_ip' do
     subject { described_class.client_ip }
-    let(:app) { -> (env) {} }
+    let(:app) { ->(env) {} }
     let(:env) { Hash.new }
 
     context 'when RequestStore::Middleware is used' do
       around do |example|
-        RequestStore::Middleware.new(-> (env) { example.run }).call({})
+        RequestStore::Middleware.new(->(env) { example.run }).call({})
       end
 
       context 'request' do

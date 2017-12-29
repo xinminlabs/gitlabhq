@@ -50,7 +50,7 @@ describe Gitlab::PrometheusClient do
   end
 
   describe 'failure to reach a provided prometheus url' do
-    let(:prometheus_url) {"https://prometheus.invalid.example.com"}
+    let(:prometheus_url) { "https://prometheus.invalid.example.com" }
 
     context 'exceptions are raised' do
       it 'raises a Gitlab::PrometheusError error when a SocketError is rescued' do

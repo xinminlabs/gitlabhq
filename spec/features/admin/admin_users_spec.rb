@@ -76,7 +76,7 @@ describe "Admin::Users" do
     end
 
     it "creates new user" do
-      expect { click_button "Create user" }.to change {User.count}.by(1)
+      expect { click_button "Create user" }.to change { User.count }.by(1)
     end
 
     it "applies defaults to user" do

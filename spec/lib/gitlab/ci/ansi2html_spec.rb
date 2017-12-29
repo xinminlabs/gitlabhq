@@ -200,8 +200,8 @@ describe Gitlab::Ci::Ansi2html do
     let(:section_start_time) { Time.new(2017, 9, 20).utc }
     let(:section_duration) { 3.seconds }
     let(:section_end_time) { section_start_time + section_duration }
-    let(:section_start) { "section_start:#{section_start_time.to_i}:#{section_name}\r\033[0K"}
-    let(:section_end) { "section_end:#{section_end_time.to_i}:#{section_name}\r\033[0K"}
+    let(:section_start) { "section_start:#{section_start_time.to_i}:#{section_name}\r\033[0K" }
+    let(:section_end) { "section_end:#{section_end_time.to_i}:#{section_name}\r\033[0K" }
     let(:section_start_html) do
       '<div class="hidden" data-action="start"'\
       " data-timestamp=\"#{section_start_time.to_i}\" data-section=\"#{section_name}\">"\

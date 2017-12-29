@@ -8,7 +8,7 @@ describe Gitlab::FileFinder do
     it 'finds by name' do
       results = finder.find('files')
 
-      filename,  blob = results.find { |_, blob| blob.filename == 'files/images/wm.svg' }
+      filename, blob = results.find { |_, blob| blob.filename == 'files/images/wm.svg' }
       expect(filename).to eq('files/images/wm.svg')
       expect(blob).to be_a(Gitlab::SearchResults::FoundBlob)
       expect(blob.ref).to eq(finder.ref)

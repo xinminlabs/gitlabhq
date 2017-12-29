@@ -8,7 +8,7 @@ feature 'Merge requests filter clear button', :js do
   let!(:project) { create(:project, :public, :repository) }
   let!(:user) { create(:user) }
   let!(:milestone) { create(:milestone, project: project) }
-  let!(:bug) { create(:label, project: project, name: 'bug')}
+  let!(:bug) { create(:label, project: project, name: 'bug') }
   let!(:mr1) { create(:merge_request, title: "Feature", source_project: project, target_project: project, source_branch: "improve/awesome", milestone: milestone, author: user, assignee: user) }
   let!(:mr2) { create(:merge_request, title: "Bugfix1", source_project: project, target_project: project, source_branch: "fix") }
 

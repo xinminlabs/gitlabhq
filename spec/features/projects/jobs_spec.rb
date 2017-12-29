@@ -20,7 +20,7 @@ feature 'Jobs' do
   end
 
   describe "GET /:project/jobs" do
-    let!(:job) { create(:ci_build,  pipeline: pipeline) }
+    let!(:job) { create(:ci_build, pipeline: pipeline) }
 
     context "Pending scope" do
       before do
@@ -314,7 +314,7 @@ feature 'Jobs' do
 
       context 'when variables are stored in trigger_request' do
         before do
-          trigger_request.update_attribute(:variables, { 'TRIGGER_KEY_1' => 'TRIGGER_VALUE_1' } )
+          trigger_request.update_attribute(:variables, { 'TRIGGER_KEY_1' => 'TRIGGER_VALUE_1' })
 
           visit project_job_path(project, job)
         end

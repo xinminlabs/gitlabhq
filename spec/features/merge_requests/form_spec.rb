@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'New/edit merge request', :js do
   include ProjectForksHelper
 
-  let!(:project)     { create(:project, :public, :repository) }
+  let!(:project) { create(:project, :public, :repository) }
   let(:forked_project) { fork_project(project, nil, repository: true) }
   let!(:user)        { create(:user) }
   let!(:user2)       { create(:user) }

@@ -347,7 +347,7 @@ describe Banzai::Filter::MilestoneReferenceFilter do
       milestone = create(:milestone, project: project)
       reference = "#{project.full_path}%#{milestone.iid}"
 
-      result = reference_filter("See #{reference}", { project: nil, group: create(:group) } )
+      result = reference_filter("See #{reference}", { project: nil, group: create(:group) })
 
       expect(result.css('a').first.attr('href')).to eq(urls.milestone_url(milestone))
     end

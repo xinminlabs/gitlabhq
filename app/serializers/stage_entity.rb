@@ -8,7 +8,7 @@ class StageEntity < Grape::Entity
   end
 
   expose :groups,
-    if: -> (_, opts) { opts[:grouped] },
+    if: ->(_, opts) { opts[:grouped] },
     with: JobGroupEntity
 
   expose :detailed_status, as: :status, with: StatusEntity

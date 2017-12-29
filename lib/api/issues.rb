@@ -262,7 +262,7 @@ module API
         end
       end
 
-      desc 'List merge requests closing issue'  do
+      desc 'List merge requests closing issue' do
         success Entities::MergeRequestBasic
       end
       params do

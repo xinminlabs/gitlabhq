@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'Multiple merge requests updating from merge_requests#index' do
-  let!(:user)    { create(:user)}
+  let!(:user)    { create(:user) }
   let!(:project) { create(:project, :repository) }
   let!(:merge_request) { create(:merge_request, source_project: project, target_project: project) }
 
@@ -68,7 +68,7 @@ feature 'Multiple merge requests updating from merge_requests#index' do
   end
 
   context 'milestone', :js do
-    let(:milestone)  { create(:milestone, project: project) }
+    let(:milestone) { create(:milestone, project: project) }
 
     describe 'set milestone' do
       before do

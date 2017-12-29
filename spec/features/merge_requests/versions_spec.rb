@@ -220,7 +220,7 @@ feature 'Merge Request versions', :js do
     end
 
     it 'should only show diffs from the commit' do
-      diff_commit_ids = find_all('.diff-file [data-commit-id]').map {|diff| diff['data-commit-id']}
+      diff_commit_ids = find_all('.diff-file [data-commit-id]').map { |diff| diff['data-commit-id'] }
 
       expect(diff_commit_ids).not_to be_empty
       expect(diff_commit_ids).to all(eq(params[:commit_id]))

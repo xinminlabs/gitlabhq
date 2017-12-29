@@ -69,8 +69,8 @@ class Member < ActiveRecord::Base
   scope :guests, -> { active.where(access_level: GUEST) }
   scope :reporters, -> { active.where(access_level: REPORTER) }
   scope :developers, -> { active.where(access_level: DEVELOPER) }
-  scope :masters,  -> { active.where(access_level: MASTER) }
-  scope :owners,  -> { active.where(access_level: OWNER) }
+  scope :masters, -> { active.where(access_level: MASTER) }
+  scope :owners, -> { active.where(access_level: OWNER) }
   scope :owners_and_masters,  -> { active.where(access_level: [OWNER, MASTER]) }
 
   scope :order_name_asc, -> { left_join_users.reorder(Gitlab::Database.nulls_last_order('users.name', 'ASC')) }
@@ -78,7 +78,7 @@ class Member < ActiveRecord::Base
   scope :order_recent_sign_in, -> { left_join_users.reorder(Gitlab::Database.nulls_last_order('users.last_sign_in_at', 'DESC')) }
   scope :order_oldest_sign_in, -> { left_join_users.reorder(Gitlab::Database.nulls_last_order('users.last_sign_in_at', 'ASC')) }
 
-  before_validation :generate_invite_token, on: :create, if: -> (member) { member.invite_email.present? }
+  before_validation :generate_invite_token, on: :create, if: ->(member) { member.invite_email.present? }
 
   after_create :send_invite, if: :invite?, unless: :importing?
   after_create :send_request, if: :request?, unless: :importing?

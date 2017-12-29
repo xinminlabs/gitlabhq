@@ -23,7 +23,7 @@ describe Uniquify do
     end
 
     it 'allows passing in a base function that defines the location of the counter' do
-      result = uniquify.string(-> (counter) { "test_#{counter}_string" }) do |s|
+      result = uniquify.string(->(counter) { "test_#{counter}_string" }) do |s|
         s == 'test__string'
       end
 

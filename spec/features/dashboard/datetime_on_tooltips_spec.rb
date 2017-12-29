@@ -10,7 +10,7 @@ feature 'Tooltips on .timeago dates', :js do
     before do
       project.add_master(user)
 
-      Event.create( project: project, author_id: user.id, action: Event::JOINED,
+      Event.create(project: project, author_id: user.id, action: Event::JOINED,
                     updated_at: created_date, created_at: created_date)
 
       sign_in user

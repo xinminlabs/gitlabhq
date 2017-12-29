@@ -109,7 +109,7 @@ module API
       expose :star_count, :forks_count
       expose :last_activity_at
 
-      def self.preload_relation(projects_relation, options =  {})
+      def self.preload_relation(projects_relation, options = {})
         projects_relation.preload(:project_feature, :route)
                          .preload(namespace: [:route, :owner],
                                   tags: :taggings)
@@ -124,11 +124,11 @@ module API
           expose_url(api_v4_projects_path(id: project.id))
         end
 
-        expose :issues, if: -> (*args) { issues_available?(*args) } do |project|
+        expose :issues, if: ->(*args) { issues_available?(*args) } do |project|
           expose_url(api_v4_projects_issues_path(id: project.id))
         end
 
-        expose :merge_requests, if: -> (*args) { mrs_available?(*args) } do |project|
+        expose :merge_requests, if: ->(*args) { mrs_available?(*args) } do |project|
           expose_url(api_v4_projects_merge_requests_path(id: project.id))
         end
 
@@ -184,7 +184,7 @@ module API
 
       expose :statistics, using: 'API::Entities::ProjectStatistics', if: :statistics
 
-      def self.preload_relation(projects_relation, options =  {})
+      def self.preload_relation(projects_relation, options = {})
         super(projects_relation).preload(:group)
                                 .preload(project_group_links: :group,
                                          fork_network: :root_project,
@@ -238,7 +238,7 @@ module API
       end
 
       expose :statistics, if: :statistics do
-        with_options format_with: -> (value) { value.to_i } do
+        with_options format_with: ->(value) { value.to_i } do
           expose :storage_size
           expose :repository_size
           expose :lfs_objects_size
@@ -374,8 +374,8 @@ module API
 
     class Milestone < Grape::Entity
       expose :id, :iid
-      expose :project_id, if: -> (entity, options) { entity&.project_id }
-      expose :group_id, if: -> (entity, options) { entity&.group_id }
+      expose :project_id, if: ->(entity, options) { entity&.project_id }
+      expose :group_id, if: ->(entity, options) { entity&.group_id }
       expose :title, :description
       expose :state, :created_at, :updated_at
       expose :due_date
@@ -625,7 +625,7 @@ module API
       expose :push_event_payload,
         as: :push_data,
         using: PushEventPayload,
-        if: -> (event, _) { event.push? }
+        if: ->(event, _) { event.push? }
 
       expose :author_username do |event, options|
         event.author&.username
@@ -667,7 +667,7 @@ module API
     end
 
     class Namespace < NamespaceBasic
-      expose :members_count_with_descendants, if: -> (namespace, opts) { expose_members_count_with_descendants?(namespace, opts) } do |namespace, _|
+      expose :members_count_with_descendants, if: ->(namespace, opts) { expose_members_count_with_descendants?(namespace, opts) } do |namespace, _|
         namespace.users_with_descendants.count
       end
 
@@ -903,7 +903,7 @@ module API
     end
 
     class Job < JobBasic
-      expose :artifacts_file, using: JobArtifactFile, if: -> (job, opts) { job.artifacts? }
+      expose :artifacts_file, using: JobArtifactFile, if: ->(job, opts) { job.artifacts? }
       expose :runner, with: Runner
     end
 
@@ -920,7 +920,7 @@ module API
 
     class Variable < Grape::Entity
       expose :key, :value
-      expose :protected?, as: :protected, if: -> (entity, _) { entity.respond_to?(:protected?) }
+      expose :protected?, as: :protected, if: ->(entity, _) { entity.respond_to?(:protected?) }
     end
 
     class Pipeline < PipelineBasic

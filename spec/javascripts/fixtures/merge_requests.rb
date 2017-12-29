@@ -4,7 +4,7 @@ describe Projects::MergeRequestsController, '(JavaScript fixtures)', type: :cont
   include JavaScriptFixturesHelpers
 
   let(:admin) { create(:admin) }
-  let(:namespace) { create(:namespace, name: 'frontend-fixtures' )}
+  let(:namespace) { create(:namespace, name: 'frontend-fixtures') }
   let(:project) { create(:project, :repository, namespace: namespace, path: 'merge-requests-project') }
   let(:merge_request) { create(:merge_request, :with_diffs, source_project: project, target_project: project, description: '- [ ] Task List Item') }
   let(:merged_merge_request) { create(:merge_request, :merged, source_project: project, target_project: project) }

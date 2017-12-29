@@ -466,7 +466,7 @@ describe API::V3::Commits do
   end
 
   describe 'POST :id/repository/commits/:sha/cherry_pick' do
-    let(:master_pickable_commit)  { project.commit('7d3b0f7cff5f37573aea97cebfd5692ea1689924') }
+    let(:master_pickable_commit) { project.commit('7d3b0f7cff5f37573aea97cebfd5692ea1689924') }
 
     context 'authorized user' do
       it 'cherry picks a commit' do

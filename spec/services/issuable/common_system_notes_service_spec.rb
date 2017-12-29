@@ -6,7 +6,7 @@ describe Issuable::CommonSystemNotesService do
   let(:issuable) { create(:issue) }
 
   shared_examples 'system note creation' do |update_params, note_text|
-    subject { described_class.new(project, user).execute(issuable, [])}
+    subject { described_class.new(project, user).execute(issuable, []) }
 
     before do
       issuable.assign_attributes(update_params)

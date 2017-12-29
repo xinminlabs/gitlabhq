@@ -5,12 +5,12 @@ class BuildDetailsEntity < JobEntity
   expose :runner, using: RunnerEntity
   expose :pipeline, using: PipelineEntity
 
-  expose :erased_by, if: -> (*) { build.erased? }, using: UserEntity
-  expose :erase_path, if: -> (*) { build.erasable? && can?(current_user, :erase_build, build) } do |build|
+  expose :erased_by, if: ->(*) { build.erased? }, using: UserEntity
+  expose :erase_path, if: ->(*) { build.erasable? && can?(current_user, :erase_build, build) } do |build|
     erase_project_job_path(project, build)
   end
 
-  expose :merge_request, if: -> (*) { can?(current_user, :read_merge_request, build.merge_request) } do
+  expose :merge_request, if: ->(*) { can?(current_user, :read_merge_request, build.merge_request) } do
     expose :iid do |build|
       build.merge_request.iid
     end
@@ -21,7 +21,7 @@ class BuildDetailsEntity < JobEntity
     end
   end
 
-  expose :new_issue_path, if: -> (*) { can?(request.current_user, :create_issue, project) && build.failed? } do |build|
+  expose :new_issue_path, if: ->(*) { can?(request.current_user, :create_issue, project) && build.failed? } do |build|
     new_project_issue_path(project, issue: build_failed_issue_options)
   end
 

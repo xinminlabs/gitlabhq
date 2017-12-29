@@ -519,7 +519,7 @@ describe Member do
     let!(:member) { create(:project_member, invite_email: "user@example.com", user: nil) }
 
     it "sets the invite token" do
-      expect { member.generate_invite_token }.to change { member.invite_token}
+      expect { member.generate_invite_token }.to change { member.invite_token }
     end
   end
 

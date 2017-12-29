@@ -59,7 +59,7 @@ describe Gitlab::OAuth::AuthHash do
     end
 
     it 'generates a temp email' do
-      expect( auth_hash.email).to start_with('temp-email-for-oauth')
+      expect(auth_hash.email).to start_with('temp-email-for-oauth')
     end
   end
 

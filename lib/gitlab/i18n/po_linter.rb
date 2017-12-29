@@ -172,7 +172,7 @@ module Gitlab
       end
 
       def validate_unnamed_variables(errors, variables)
-        if  variables.size > 1 && variables.any? { |variable_name| unnamed_variable?(variable_name) }
+        if variables.size > 1 && variables.any? { |variable_name| unnamed_variable?(variable_name) }
           errors << 'is combining multiple unnamed variables'
         end
       end

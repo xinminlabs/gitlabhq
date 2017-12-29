@@ -6,7 +6,7 @@ feature 'Group show page' do
 
   context 'when signed in' do
     let(:user) do
-      create(:group_member, :developer, user: create(:user), group: group ).user
+      create(:group_member, :developer, user: create(:user), group: group).user
     end
 
     before do

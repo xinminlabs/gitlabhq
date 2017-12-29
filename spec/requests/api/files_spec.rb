@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe API::Files do
   let(:user) { create(:user) }
-  let!(:project) { create(:project, :repository, namespace: user.namespace ) }
+  let!(:project) { create(:project, :repository, namespace: user.namespace) }
   let(:guest) { create(:user) { |u| project.add_guest(u) } }
   let(:file_path) { "files%2Fruby%2Fpopen%2Erb" }
   let(:params) do
@@ -246,7 +246,7 @@ describe API::Files do
     end
 
     context 'when the repo is empty' do
-      let!(:project) { create(:project_empty_repo, namespace: user.namespace ) }
+      let!(:project) { create(:project_empty_repo, namespace: user.namespace) }
 
       it "creates a new file in project repo" do
         post api(route("newfile%2Erb"), user), valid_params

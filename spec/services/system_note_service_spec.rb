@@ -295,7 +295,7 @@ describe SystemNoteService do
   end
 
   describe '.merge_when_pipeline_succeeds' do
-    let(:pipeline) { build(:ci_pipeline_without_jobs )}
+    let(:pipeline) { build(:ci_pipeline_without_jobs) }
     let(:noteable) do
       create(:merge_request, source_project: project, target_project: project)
     end
@@ -323,7 +323,7 @@ describe SystemNoteService do
     end
 
     it "posts the 'merge when pipeline succeeds' system note" do
-      expect(subject.note).to eq  "canceled the automatic merge"
+      expect(subject.note).to eq "canceled the automatic merge"
     end
   end
 
@@ -389,8 +389,8 @@ describe SystemNoteService do
   describe '.change_branch' do
     subject { described_class.change_branch(noteable, project, author, 'target', old_branch, new_branch) }
 
-    let(:old_branch) { 'old_branch'}
-    let(:new_branch) { 'new_branch'}
+    let(:old_branch) { 'old_branch' }
+    let(:new_branch) { 'new_branch' }
 
     it_behaves_like 'a system note' do
       let(:action) { 'branch' }
@@ -705,7 +705,7 @@ describe SystemNoteService do
     let(:author)          { create(:user) }
     let(:issue)           { create(:issue, project: project) }
     let(:merge_request)   { create(:merge_request, :simple, target_project: project, source_project: project) }
-    let(:jira_issue)      { ExternalIssue.new("JIRA-1", project)}
+    let(:jira_issue)      { ExternalIssue.new("JIRA-1", project) }
     let(:jira_tracker)    { project.jira_service }
     let(:commit)          { project.commit }
     let(:comment_url)     { jira_api_comment_url(jira_issue.id) }
@@ -801,7 +801,7 @@ describe SystemNoteService do
       end
 
       context 'for issues' do
-        let(:issue)           { create(:issue, project: project) }
+        let(:issue) { create(:issue, project: project) }
 
         it "creates comment" do
           result = described_class.cross_reference(jira_issue, issue, author)
@@ -1098,7 +1098,7 @@ describe SystemNoteService do
     end
 
     context 'across different projects' do
-      let(:other_project)  { create(:project) }
+      let(:other_project) { create(:project) }
       let(:canonical_issue) { create(:issue, project: other_project) }
 
       it_behaves_like 'a system note' do
@@ -1123,7 +1123,7 @@ describe SystemNoteService do
     end
 
     context 'across different projects' do
-      let(:other_project)  { create(:project) }
+      let(:other_project) { create(:project) }
       let(:duplicate_issue) { create(:issue, project: other_project) }
 
       it_behaves_like 'a system note' do
@@ -1135,7 +1135,7 @@ describe SystemNoteService do
   end
 
   describe '.discussion_lock' do
-    subject { described_class.discussion_lock(noteable, author)  }
+    subject { described_class.discussion_lock(noteable, author) }
 
     context 'discussion unlocked' do
       it_behaves_like 'a system note' do

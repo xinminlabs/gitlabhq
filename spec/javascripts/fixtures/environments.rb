@@ -4,7 +4,7 @@ describe Projects::EnvironmentsController, '(JavaScript fixtures)', type: :contr
   include JavaScriptFixturesHelpers
 
   let(:admin) { create(:admin) }
-  let(:namespace) { create(:namespace, name: 'frontend-fixtures' )}
+  let(:namespace) { create(:namespace, name: 'frontend-fixtures') }
   let(:project) { create(:project_empty_repo, namespace: namespace, path: 'environments-project') }
   let(:environment) { create(:environment, name: 'production', project: project) }
 

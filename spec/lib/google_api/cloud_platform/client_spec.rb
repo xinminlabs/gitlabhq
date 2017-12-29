@@ -93,7 +93,7 @@ describe GoogleApi::CloudPlatform::Client do
                 "machine_type": machine_type
               }
             }
-          } )
+          })
 
       subject
     end

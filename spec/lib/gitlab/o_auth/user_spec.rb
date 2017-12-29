@@ -24,12 +24,12 @@ describe Gitlab::OAuth::User do
     let!(:existing_user) { create(:omniauth_user, extern_uid: 'my-uid', provider: 'my-provider') }
 
     it "finds an existing user based on uid and provider (facebook)" do
-      expect( oauth_user.persisted? ).to be_truthy
+      expect(oauth_user.persisted?).to be_truthy
     end
 
     it 'returns false if user is not found in database' do
       allow(auth_hash).to receive(:uid).and_return('non-existing')
-      expect( oauth_user.persisted? ).to be_falsey
+      expect(oauth_user.persisted?).to be_falsey
     end
   end
 

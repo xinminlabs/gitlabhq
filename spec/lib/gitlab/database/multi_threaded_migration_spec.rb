@@ -35,7 +35,7 @@ describe Gitlab::Database::MultiThreadedMigration do
     it 'joins the threads when the join parameter is set' do
       expect_any_instance_of(Thread).to receive(:join).and_call_original
 
-      migration.with_multiple_threads(1) { }
+      migration.with_multiple_threads(1) {}
     end
   end
 end

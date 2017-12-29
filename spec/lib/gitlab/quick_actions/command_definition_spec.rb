@@ -24,7 +24,7 @@ describe Gitlab::QuickActions::CommandDefinition do
   describe "#noop?" do
     context "when the command has an action block" do
       before do
-        subject.action_block = proc { }
+        subject.action_block = proc {}
       end
 
       it "returns false" do

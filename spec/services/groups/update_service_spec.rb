@@ -96,7 +96,7 @@ describe Groups::UpdateService do
       end
 
       it "hasn't changed the path" do
-        expect { service.execute}.not_to change { internal_group.reload.path}
+        expect { service.execute }.not_to change { internal_group.reload.path }
       end
     end
   end

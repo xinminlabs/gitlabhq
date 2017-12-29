@@ -31,7 +31,7 @@ module Gitlab
         Rack::Builder.app do
           use Rack::Deflater
           use ::Prometheus::Client::Rack::Exporter
-          run -> (env) { [404, {}, ['']] }
+          run ->(env) { [404, {}, ['']] }
         end
       end
     end

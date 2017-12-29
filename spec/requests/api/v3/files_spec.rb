@@ -15,7 +15,7 @@ describe API::V3::Files do
   # ...
 
   let(:user) { create(:user) }
-  let!(:project) { create(:project, :repository, namespace: user.namespace ) }
+  let!(:project) { create(:project, :repository, namespace: user.namespace) }
   let(:guest) { create(:user) { |u| project.add_guest(u) } }
   let(:file_path) { 'files/ruby/popen.rb' }
   let(:params) do
@@ -148,7 +148,7 @@ describe API::V3::Files do
     end
 
     context 'when the repo is empty' do
-      let!(:project) { create(:project_empty_repo, namespace: user.namespace ) }
+      let!(:project) { create(:project_empty_repo, namespace: user.namespace) }
 
       it "creates a new file in project repo" do
         post v3_api("/projects/#{project.id}/repository/files", user), valid_params

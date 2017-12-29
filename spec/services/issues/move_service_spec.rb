@@ -45,7 +45,7 @@ describe Issues::MoveService do
     context 'issue movable' do
       include_context 'user can move issue'
 
-      context 'move to new milestone'  do
+      context 'move to new milestone' do
         let(:new_issue) { move_service.execute(old_issue, new_project) }
 
         context 'project milestone' do

@@ -259,7 +259,7 @@ describe Gitlab::Git::Blob, seed_helper: true do
       blobs = described_class.batch_lfs_pointers(repository, [lfs_blob.id])
 
       expect(blobs.count).to eq(1)
-      expect(blobs).to all( be_a(Gitlab::Git::Blob) )
+      expect(blobs).to all(be_a(Gitlab::Git::Blob))
     end
 
     it 'silently ignores tree objects' do

@@ -25,7 +25,7 @@ shared_examples_for "position formatter" do
 
   describe '#to_h' do
     let(:formatter_hash) do
-      attrs.merge(position_type: base_attrs[:position_type] || 'text' )
+      attrs.merge(position_type: base_attrs[:position_type] || 'text')
     end
 
     subject { formatter.to_h }

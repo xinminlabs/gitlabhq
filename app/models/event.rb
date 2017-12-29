@@ -59,7 +59,7 @@ class Event < ActiveRecord::Base
   scope :recent, -> { reorder(id: :desc) }
   scope :code_push, -> { where(action: PUSHED) }
 
-  scope :in_projects, -> (projects) do
+  scope :in_projects, ->(projects) do
     sub_query = projects
       .except(:order)
       .select(1)

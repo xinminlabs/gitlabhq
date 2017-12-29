@@ -87,7 +87,7 @@ describe Ci::Runner do
       @runner2 = FactoryBot.create(:ci_runner, :shared, contacted_at: 1.second.ago)
     end
 
-    it { is_expected.to eq([@runner2])}
+    it { is_expected.to eq([@runner2]) }
   end
 
   describe '#online?' do

@@ -17,7 +17,7 @@ describe Gitlab::Saml::AuthHash do
     OmniAuth::AuthHash.new(uid: 'my-uid',
                            provider: 'saml',
                            info: info_hash,
-                           extra: { raw_info: OneLogin::RubySaml::Attributes.new(raw_info_attr) } )
+                           extra: { raw_info: OneLogin::RubySaml::Attributes.new(raw_info_attr) })
   end
 
   before do

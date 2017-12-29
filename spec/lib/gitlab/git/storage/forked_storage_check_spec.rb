@@ -33,7 +33,7 @@ describe Gitlab::Git::Storage::ForkedStorageCheck, broken_storage: true, skip_da
       expect(runtime).to be < 1.0
     end
 
-    it 'will try the specified amount of times before failing'  do
+    it 'will try the specified amount of times before failing' do
       allow(described_class).to receive(:check_filesystem_in_process) do
         Process.spawn("sleep 10")
       end

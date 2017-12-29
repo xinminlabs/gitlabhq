@@ -5,7 +5,7 @@ module API
     params do
       requires :id, type: String, desc: 'The ID of a project'
     end
-    resource :projects, requirements: API::PROJECT_ENDPOINT_REQUIREMENTS  do
+    resource :projects, requirements: API::PROJECT_ENDPOINT_REQUIREMENTS do
       desc 'Trigger a GitLab project pipeline' do
         success Entities::Pipeline
       end
@@ -53,7 +53,7 @@ module API
         success Entities::Trigger
       end
       params do
-        requires :trigger_id, type: Integer,  desc: 'The trigger ID'
+        requires :trigger_id, type: Integer, desc: 'The trigger ID'
       end
       get ':id/triggers/:trigger_id' do
         authenticate!
@@ -69,7 +69,7 @@ module API
         success Entities::Trigger
       end
       params do
-        requires :description, type: String,  desc: 'The trigger description'
+        requires :description, type: String, desc: 'The trigger description'
       end
       post ':id/triggers' do
         authenticate!
@@ -110,7 +110,7 @@ module API
         success Entities::Trigger
       end
       params do
-        requires :trigger_id, type: Integer,  desc: 'The trigger ID'
+        requires :trigger_id, type: Integer, desc: 'The trigger ID'
       end
       post ':id/triggers/:trigger_id/take_ownership' do
         authenticate!
@@ -131,7 +131,7 @@ module API
         success Entities::Trigger
       end
       params do
-        requires :trigger_id, type: Integer,  desc: 'The trigger ID'
+        requires :trigger_id, type: Integer, desc: 'The trigger ID'
       end
       delete ':id/triggers/:trigger_id' do
         authenticate!

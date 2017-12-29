@@ -17,7 +17,7 @@ feature 'Clusters Applications', :js do
     end
 
     context 'when cluster is being created' do
-      let(:cluster) { create(:cluster, :providing_by_gcp, projects: [project])}
+      let(:cluster) { create(:cluster, :providing_by_gcp, projects: [project]) }
 
       scenario 'user is unable to install applications' do
         page.within('.js-cluster-application-row-helm') do
@@ -28,7 +28,7 @@ feature 'Clusters Applications', :js do
     end
 
     context 'when cluster is created' do
-      let(:cluster) { create(:cluster, :provided_by_gcp, projects: [project])}
+      let(:cluster) { create(:cluster, :provided_by_gcp, projects: [project]) }
 
       scenario 'user can install applications' do
         page.within('.js-cluster-application-row-helm') do

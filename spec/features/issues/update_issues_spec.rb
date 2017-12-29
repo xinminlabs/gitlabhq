@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'Multiple issue updating from issues#index', :js do
   let!(:project)   { create(:project) }
   let!(:issue)     { create(:issue, project: project) }
-  let!(:user)      { create(:user)}
+  let!(:user)      { create(:user) }
 
   before do
     project.add_master(user)

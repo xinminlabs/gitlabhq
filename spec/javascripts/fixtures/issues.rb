@@ -4,7 +4,7 @@ describe Projects::IssuesController, '(JavaScript fixtures)', type: :controller 
   include JavaScriptFixturesHelpers
 
   let(:admin) { create(:admin) }
-  let(:namespace) { create(:namespace, name: 'frontend-fixtures' )}
+  let(:namespace) { create(:namespace, name: 'frontend-fixtures') }
   let(:project) { create(:project_empty_repo, namespace: namespace, path: 'issues-project') }
 
   render_views

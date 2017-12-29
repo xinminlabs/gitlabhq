@@ -264,11 +264,11 @@ describe Gitlab::Auth do
         password: password,
         password_confirmation: password)
     end
-    let(:username) { 'John' }     # username isn't lowercase, test this
+    let(:username) { 'John' } # username isn't lowercase, test this
     let(:password) { 'my-secret' }
 
     it "finds user by valid login/password" do
-      expect( gl_auth.find_with_user_password(username, password) ).to eql user
+      expect(gl_auth.find_with_user_password(username, password)).to eql user
     end
 
     it 'finds user by valid email/password with case-insensitive email' do
@@ -281,12 +281,12 @@ describe Gitlab::Auth do
 
     it "does not find user with invalid password" do
       password = 'wrong'
-      expect( gl_auth.find_with_user_password(username, password) ).not_to eql user
+      expect(gl_auth.find_with_user_password(username, password)).not_to eql user
     end
 
     it "does not find user with invalid login" do
       user = 'wrong'
-      expect( gl_auth.find_with_user_password(username, password) ).not_to eql user
+      expect(gl_auth.find_with_user_password(username, password)).not_to eql user
     end
 
     include_examples 'user login operation with unique ip limit' do
@@ -298,13 +298,13 @@ describe Gitlab::Auth do
     it "does not find user in blocked state" do
       user.block
 
-      expect( gl_auth.find_with_user_password(username, password) ).not_to eql user
+      expect(gl_auth.find_with_user_password(username, password)).not_to eql user
     end
 
     it "does not find user in ldap_blocked state" do
       user.ldap_block
 
-      expect( gl_auth.find_with_user_password(username, password) ).not_to eql user
+      expect(gl_auth.find_with_user_password(username, password)).not_to eql user
     end
 
     context "with ldap enabled" do

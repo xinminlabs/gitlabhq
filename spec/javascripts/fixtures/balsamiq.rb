@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'Balsamiq file', '(JavaScript fixtures)', type: :controller do
   include JavaScriptFixturesHelpers
 
-  let(:namespace) { create(:namespace, name: 'frontend-fixtures' )}
+  let(:namespace) { create(:namespace, name: 'frontend-fixtures') }
   let(:project) { create(:project, :repository, namespace: namespace, path: 'balsamiq-project') }
 
   before(:all) do

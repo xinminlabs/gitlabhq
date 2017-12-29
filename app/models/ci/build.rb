@@ -49,7 +49,7 @@ module Ci
     scope :manual_actions, ->() { where(when: :manual, status: COMPLETED_STATUSES + [:manual]) }
     scope :ref_protected, -> { where(protected: true) }
 
-    scope :matches_tag_ids, -> (tag_ids) do
+    scope :matches_tag_ids, ->(tag_ids) do
       matcher = ::ActsAsTaggableOn::Tagging
         .where(taggable_type: CommitStatus)
         .where(context: 'tags')

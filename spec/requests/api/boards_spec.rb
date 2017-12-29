@@ -6,7 +6,7 @@ describe API::Boards do
   set(:non_member)  { create(:user) }
   set(:guest)       { create(:user) }
   set(:admin)       { create(:user, :admin) }
-  set(:project)    { create(:project, :public, creator_id: user.id, namespace: user.namespace ) }
+  set(:project) { create(:project, :public, creator_id: user.id, namespace: user.namespace) }
 
   set(:dev_label) do
     create(:label, title: 'Development', color: '#FFAABB', project: project)

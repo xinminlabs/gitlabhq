@@ -8,7 +8,7 @@ module Bitbucket
       end
 
       def self.decorate(entries)
-        entries.map { |entry| new(entry)}
+        entries.map { |entry| new(entry) }
       end
     end
   end

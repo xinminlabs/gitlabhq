@@ -18,7 +18,7 @@ describe Ci::Build do
   it { is_expected.to belong_to(:trigger_request) }
   it { is_expected.to belong_to(:erased_by) }
   it { is_expected.to have_many(:deployments) }
-  it { is_expected.to have_many(:trace_sections)}
+  it { is_expected.to have_many(:trace_sections) }
   it { is_expected.to validate_presence_of(:ref) }
   it { is_expected.to respond_to(:has_trace?) }
   it { is_expected.to respond_to(:trace) }
@@ -415,7 +415,7 @@ describe Ci::Build do
     let(:subject) { build.hide_secrets(data) }
 
     context 'hide runners token' do
-      let(:data) { 'new token data'}
+      let(:data) { 'new token data' }
 
       before do
         build.project.update(runners_token: 'token')
@@ -425,7 +425,7 @@ describe Ci::Build do
     end
 
     context 'hide build token' do
-      let(:data) { 'new token data'}
+      let(:data) { 'new token data' }
 
       before do
         build.update(token: 'token')
@@ -435,7 +435,7 @@ describe Ci::Build do
     end
 
     context 'hide build token' do
-      let(:data) { 'new token data'}
+      let(:data) { 'new token data' }
 
       before do
         build.update(token: 'token')
@@ -544,7 +544,7 @@ describe Ci::Build do
 
         context 'and start action is defined' do
           before do
-            build.update(options: { environment: { action: 'start' } } )
+            build.update(options: { environment: { action: 'start' } })
           end
 
           it { is_expected.to be_truthy }
@@ -574,7 +574,7 @@ describe Ci::Build do
 
         context 'and stop action is defined' do
           before do
-            build.update(options: { environment: { action: 'stop' } } )
+            build.update(options: { environment: { action: 'stop' } })
           end
 
           it { is_expected.to be_truthy }
@@ -1637,7 +1637,7 @@ describe Ci::Build do
 
       context 'when variables are stored in trigger_request' do
         before do
-          trigger_request.update_attribute(:variables, { 'TRIGGER_KEY_1' => 'TRIGGER_VALUE_1' } )
+          trigger_request.update_attribute(:variables, { 'TRIGGER_KEY_1' => 'TRIGGER_VALUE_1' })
         end
 
         it_behaves_like 'returns variables for triggers'
@@ -1729,10 +1729,10 @@ describe Ci::Build do
     context 'when container registry is enabled' do
       let(:container_registry_enabled) { true }
       let(:ci_registry) do
-        { key: 'CI_REGISTRY',  value: 'registry.example.com',  public: true }
+        { key: 'CI_REGISTRY', value: 'registry.example.com', public: true }
       end
       let(:ci_registry_image) do
-        { key: 'CI_REGISTRY_IMAGE',  value: project.container_registry_url, public: true }
+        { key: 'CI_REGISTRY_IMAGE', value: project.container_registry_url, public: true }
       end
 
       context 'and is disabled for project' do

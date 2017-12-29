@@ -5,8 +5,8 @@ describe IssuablesHelper do
   let(:label2) { build_stubbed(:label) }
 
   describe '#users_dropdown_label' do
-    let(:user)  { build_stubbed(:user) }
-    let(:user2)  { build_stubbed(:user) }
+    let(:user) { build_stubbed(:user) }
+    let(:user2) { build_stubbed(:user) }
 
     it 'returns unassigned' do
       expect(users_dropdown_label([])).to eq('Unassigned')

@@ -28,7 +28,7 @@ class FixProjectRecordsWithInvalidVisibility < ActiveRecord::Migration
       break if to_update.rows.count == 0
 
       # row[0] is projects.id, row[1] is namespaces.visibility_level
-      updates = to_update.rows.each_with_object(Hash.new {|h, k| h[k] = [] }) do |row, obj|
+      updates = to_update.rows.each_with_object(Hash.new { |h, k| h[k] = [] }) do |row, obj|
         obj[row[1]] << row[0]
       end
 

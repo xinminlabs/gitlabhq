@@ -55,7 +55,7 @@ describe Clusters::Gcp::FinalizeCreationService do
             api_url,
             {
               token: Base64.encode64(token)
-            } )
+            })
         end
 
         it_behaves_like 'success'

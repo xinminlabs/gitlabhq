@@ -153,7 +153,7 @@ feature 'Group' do
     end
 
     it 'removes group' do
-      expect { remove_with_confirm('Remove group', group.path) }.to change {Group.count}.by(-1)
+      expect { remove_with_confirm('Remove group', group.path) }.to change { Group.count }.by(-1)
       expect(group.members.all.count).to be_zero
       expect(page).to have_content "scheduled for deletion"
     end
@@ -200,7 +200,7 @@ feature 'Group' do
     let!(:group) { create(:group) }
     let!(:nested_group) { create(:group, parent: group) }
     let!(:project) { create(:project, namespace: group) }
-    let!(:path)  { group_path(group) }
+    let!(:path) { group_path(group) }
 
     it 'it renders projects and groups on the page' do
       visit path

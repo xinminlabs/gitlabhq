@@ -4,7 +4,7 @@ describe API::V3::Boards do
   set(:user)        { create(:user) }
   set(:guest)       { create(:user) }
   set(:non_member)  { create(:user) }
-  set(:project)    { create(:project, :public, creator_id: user.id, namespace: user.namespace ) }
+  set(:project) { create(:project, :public, creator_id: user.id, namespace: user.namespace) }
 
   set(:dev_label) do
     create(:label, title: 'Development', color: '#FFAABB', project: project)

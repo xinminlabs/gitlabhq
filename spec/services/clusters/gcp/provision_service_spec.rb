@@ -40,7 +40,7 @@ describe Clusters::Gcp::ProvisionService do
           gcp_project_id, zone,
           {
             "status": 'unexpected'
-          } )
+          })
       end
 
       it_behaves_like 'error'

@@ -7,7 +7,7 @@ describe Network::Graph do
   it '#initialize' do
     graph = described_class.new(project, 'refs/heads/master', project.repository.commit, nil)
 
-    expect(graph.notes).to eq( { note_on_commit.commit_id => 1 } )
+    expect(graph.notes).to eq({ note_on_commit.commit_id => 1 })
   end
 
   describe '#commits' do
@@ -17,7 +17,7 @@ describe Network::Graph do
       commits = graph.commits
 
       expect(commits).not_to be_empty
-      expect(commits).to all( be_kind_of(Network::Commit) )
+      expect(commits).to all(be_kind_of(Network::Commit))
     end
 
     it 'it the commits by commit date (descending)' do
@@ -40,7 +40,7 @@ describe Network::Graph do
           parent_indexes = commit.parent_ids.map { |parent_id| commit_ids.find_index(parent_id) }.compact
 
           # All parents of the current commit should appear after it
-          expect(parent_indexes).to all( be > index )
+          expect(parent_indexes).to all(be > index)
         end
       end
     end

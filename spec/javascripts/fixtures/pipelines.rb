@@ -4,7 +4,7 @@ describe Projects::PipelinesController, '(JavaScript fixtures)', type: :controll
   include JavaScriptFixturesHelpers
 
   let(:admin) { create(:admin) }
-  let(:namespace) { create(:namespace, name: 'frontend-fixtures' )}
+  let(:namespace) { create(:namespace, name: 'frontend-fixtures') }
   let(:project) { create(:project, :repository, namespace: namespace, path: 'pipelines-project') }
   let(:commit) { create(:commit, project: project) }
   let(:commit_without_author) { RepoHelpers.another_sample_commit }

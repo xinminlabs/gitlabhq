@@ -3,8 +3,8 @@ require 'rails_helper'
 describe Gitlab::Kubernetes::Helm::Pod do
   describe '#generate' do
     let(:cluster) { create(:cluster) }
-    let(:app) {  create(:clusters_applications_prometheus, cluster: cluster) }
-    let(:command) {  app.install_command }
+    let(:app) { create(:clusters_applications_prometheus, cluster: cluster) }
+    let(:command) { app.install_command }
     let(:client) { double('kubernetes client') }
     let(:namespace) { Gitlab::Kubernetes::Namespace.new(Gitlab::Kubernetes::Helm::NAMESPACE, client) }
     subject { described_class.new(command, namespace.name, client) }

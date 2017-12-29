@@ -27,7 +27,7 @@ describe Projects::BlameController do
     end
 
     context "invalid file" do
-      let(:id) { 'master/files/ruby/missing_file.rb'}
+      let(:id) { 'master/files/ruby/missing_file.rb' }
       it { expect(response).to have_gitlab_http_status(404) }
     end
   end

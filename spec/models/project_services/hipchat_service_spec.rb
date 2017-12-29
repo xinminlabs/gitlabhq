@@ -31,7 +31,7 @@ describe HipchatService do
     let(:api_url) { 'https://hipchat.example.com/v2/room/123456/notification?auth_token=verySecret' }
     let(:project_name) { project.name_with_namespace.gsub(/\s/, '') }
     let(:token) { 'verySecret' }
-    let(:server_url) { 'https://hipchat.example.com'}
+    let(:server_url) { 'https://hipchat.example.com' }
     let(:push_sample_data) do
       Gitlab::DataBuilder::Push.build_sample(project, user)
     end

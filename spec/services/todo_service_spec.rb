@@ -254,7 +254,7 @@ describe TodoService do
 
         expect_any_instance_of(User).to receive(:update_todos_count_cache).and_call_original
 
-        service.destroy_target(issue) { }
+        service.destroy_target(issue) {}
       end
 
       it 'does not refresh the todos count cache for users with only done todos on the target' do
@@ -262,7 +262,7 @@ describe TodoService do
 
         expect_any_instance_of(User).not_to receive(:update_todos_count_cache)
 
-        service.destroy_target(issue) { }
+        service.destroy_target(issue) {}
       end
 
       it 'yields the target to the caller' do
@@ -456,7 +456,7 @@ describe TodoService do
       end
 
       context 'on commit' do
-        let(:project)  { create(:project, :repository) }
+        let(:project) { create(:project, :repository) }
 
         it 'creates a todo for each valid mentioned user when leaving a note on commit' do
           service.new_note(note_on_commit, john_doe)

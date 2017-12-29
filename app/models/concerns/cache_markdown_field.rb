@@ -34,7 +34,7 @@ module CacheMarkdownField
     end
 
     def html_fields
-      markdown_fields.map {|field| html_field(field) }
+      markdown_fields.map { |field| html_field(field) }
     end
   end
 
@@ -71,7 +71,7 @@ module CacheMarkdownField
     end.to_h
     updates['cached_markdown_version'] = CacheMarkdownField::CACHE_VERSION
 
-    updates.each {|html_field, data| write_attribute(html_field, data) }
+    updates.each { |html_field, data| write_attribute(html_field, data) }
   end
 
   def refresh_markdown_cache!
@@ -95,7 +95,7 @@ module CacheMarkdownField
   end
 
   def invalidated_markdown_cache?
-    cached_markdown_fields.html_fields.any? {|html_field| attribute_invalidated?(html_field) }
+    cached_markdown_fields.html_fields.any? { |html_field| attribute_invalidated?(html_field) }
   end
 
   def attribute_invalidated?(attr)

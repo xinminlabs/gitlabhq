@@ -30,9 +30,9 @@ describe API::Internal do
 
   describe 'GET /internal/broadcast_message' do
     context 'broadcast message exists' do
-      let!(:broadcast_message) { create(:broadcast_message, starts_at: 1.day.ago, ends_at: 1.day.from_now ) }
+      let!(:broadcast_message) { create(:broadcast_message, starts_at: 1.day.ago, ends_at: 1.day.from_now) }
 
-      it 'returns one broadcast message'  do
+      it 'returns one broadcast message' do
         get api('/internal/broadcast_message'), secret_token: secret_token
 
         expect(response).to have_gitlab_http_status(200)
@@ -41,7 +41,7 @@ describe API::Internal do
     end
 
     context 'broadcast message does not exist' do
-      it 'returns nothing'  do
+      it 'returns nothing' do
         get api('/internal/broadcast_message'), secret_token: secret_token
 
         expect(response).to have_gitlab_http_status(200)
@@ -63,7 +63,7 @@ describe API::Internal do
 
   describe 'GET /internal/broadcast_messages' do
     context 'broadcast message(s) exist' do
-      let!(:broadcast_message) { create(:broadcast_message, starts_at: 1.day.ago, ends_at: 1.day.from_now ) }
+      let!(:broadcast_message) { create(:broadcast_message, starts_at: 1.day.ago, ends_at: 1.day.from_now) }
 
       it 'returns active broadcast message(s)' do
         get api('/internal/broadcast_messages'), secret_token: secret_token
@@ -742,9 +742,9 @@ describe API::Internal do
     end
 
     context 'broadcast message exists' do
-      let!(:broadcast_message) { create(:broadcast_message, starts_at: 1.day.ago, ends_at: 1.day.from_now ) }
+      let!(:broadcast_message) { create(:broadcast_message, starts_at: 1.day.ago, ends_at: 1.day.from_now) }
 
-      it 'returns one broadcast message'  do
+      it 'returns one broadcast message' do
         post api("/internal/post_receive"), valid_params
 
         expect(response).to have_gitlab_http_status(200)
@@ -753,7 +753,7 @@ describe API::Internal do
     end
 
     context 'broadcast message does not exist' do
-      it 'returns empty string'  do
+      it 'returns empty string' do
         post api("/internal/post_receive"), valid_params
 
         expect(response).to have_gitlab_http_status(200)
