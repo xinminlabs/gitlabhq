@@ -38,7 +38,6 @@ module Clusters
         end
 
         yield(operation_id)
-
       rescue Google::Apis::ServerError, Google::Apis::ClientError, Google::Apis::AuthorizationError => e
         provider.make_errored!("Failed to request to CloudPlatform; #{e.message}")
       end

@@ -9,12 +9,10 @@ class Discussion
   delegate  :created_at,
             :project,
             :author,
-
             :noteable,
             :commit_id,
             :for_commit?,
             :for_merge_request?,
-
             to: :first_note
 
   def self.build(notes, context_noteable = nil)

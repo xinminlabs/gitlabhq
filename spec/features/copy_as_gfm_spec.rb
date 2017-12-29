@@ -28,39 +28,26 @@ describe 'Copy as GFM', :js do
     it 'works', :aggregate_failures do
       verify(
         'nesting',
-
         '> 1. [x] **[$`2 + 2`$ {-=-}{+=+} 2^2 ~~:thumbsup:~~](http://google.com)**'
       )
 
       verify(
         'a real world example from the gitlab-ce README',
-
         <<-GFM.strip_heredoc
           # GitLab
-
           [![Build status](https://gitlab.com/gitlab-org/gitlab-ce/badges/master/build.svg)](https://gitlab.com/gitlab-org/gitlab-ce/commits/master)
           [![CE coverage report](https://gitlab.com/gitlab-org/gitlab-ce/badges/master/coverage.svg?job=coverage)](https://gitlab-org.gitlab.io/gitlab-ce/coverage-ruby)
           [![Code Climate](https://codeclimate.com/github/gitlabhq/gitlabhq.svg)](https://codeclimate.com/github/gitlabhq/gitlabhq)
           [![Core Infrastructure Initiative Best Practices](https://bestpractices.coreinfrastructure.org/projects/42/badge)](https://bestpractices.coreinfrastructure.org/projects/42)
-
           ## Canonical source
-
           The canonical source of GitLab Community Edition is [hosted on GitLab.com](https://gitlab.com/gitlab-org/gitlab-ce/).
-
           ## Open source software to collaborate on code
-
           To see how GitLab looks please see the [features page on our website](https://about.gitlab.com/features/).
-
           - Manage Git repositories with fine grained access controls that keep your code secure
-
           - Perform code reviews and enhance collaboration with merge requests
-
           - Complete continuous integration (CI) and CD pipelines to builds, test, and deploy your applications
-
           - Each project can also have an issue tracker, issue board, and a wiki
-
           - Used by more than 100,000 organizations, GitLab is the most popular solution to manage Git repositories on-premises
-
           - Completely free and open source (MIT Expat license)
         GFM
       )
@@ -99,14 +86,12 @@ describe 'Copy as GFM', :js do
 
       verify(
         'InlineDiffFilter',
-
         '{-Deleted text-}',
         '{+Added text+}'
       )
 
       verify(
         'TaskListFilter',
-
         '- [ ] Unchecked task',
         '- [x] Checked task',
         '1. [ ] Unchecked numbered task',
@@ -115,7 +100,6 @@ describe 'Copy as GFM', :js do
 
       verify(
         'ReferenceFilter',
-
         # issue reference
         @feat.issue.to_reference,
         # full issue reference
@@ -132,39 +116,32 @@ describe 'Copy as GFM', :js do
 
       verify(
         'AutolinkFilter',
-
         'https://example.com'
       )
 
       verify(
         'TableOfContentsFilter',
-
         '[[_TOC_]]'
       )
 
       verify(
         'EmojiFilter',
-
         ':thumbsup:'
       )
 
       verify(
         'ImageLinkFilter',
-
         '![Image](https://example.com/image.png)'
       )
 
       verify(
         'VideoLinkFilter',
-
         '![Video](https://example.com/video.mp4)'
       )
 
       verify(
         'MathFilter: math as converted from GFM to HTML',
-
         '$`c = \pm\sqrt{a^2 + b^2}`$',
-
         # math block
         <<-GFM.strip_heredoc
           ```math
@@ -286,46 +263,32 @@ describe 'Copy as GFM', :js do
 
       verify(
         'SanitizationFilter',
-
         <<-GFM.strip_heredoc
         <sub>sub</sub>
-
         <dl>
           <dt>dt</dt>
           <dd>dd</dd>
         </dl>
-
         <kbd>kbd</kbd>
-
         <q>q</q>
-
         <samp>samp</samp>
-
         <var>var</var>
-
         <ruby>ruby</ruby>
-
         <rt>rt</rt>
-
         <rp>rp</rp>
-
         <abbr>abbr</abbr>
-
         <summary>summary</summary>
-
         <details>details</details>
         GFM
       )
 
       verify(
         'SanitizationFilter',
-
         <<-GFM.strip_heredoc,
           ```
           Plain text
           ```
         GFM
-
         <<-GFM.strip_heredoc,
           ```ruby
           def foo
@@ -333,12 +296,9 @@ describe 'Copy as GFM', :js do
           end
           ```
         GFM
-
         <<-GFM.strip_heredoc
           Foo
-
               This is an example of GFM
-
               ```js
               Code goes here
               ```
@@ -347,14 +307,10 @@ describe 'Copy as GFM', :js do
 
       verify(
         'MarkdownFilter',
-
         "Line with two spaces at the end  \nto insert a linebreak",
-
         '`code`',
         '`` code with ` ticks ``',
-
         '> Quote',
-
         # multiline quote
         <<-GFM.strip_heredoc,
           > Multiline
@@ -362,67 +318,47 @@ describe 'Copy as GFM', :js do
           >
           > With multiple paragraphs
         GFM
-
         '![Image](https://example.com/image.png)',
-
         '# Heading with no anchor link',
-
         '[Link](https://example.com)',
-
         '- List item',
-
         # multiline list item
         <<-GFM.strip_heredoc,
           - Multiline
               List item
         GFM
-
         # nested lists
         <<-GFM.strip_heredoc,
           - Nested
-
               - Lists
         GFM
-
         # list with blockquote
         <<-GFM.strip_heredoc,
           - List
-
               > Blockquote
         GFM
-
         '1. Numbered list item',
-
         # multiline numbered list item
         <<-GFM.strip_heredoc,
           1. Multiline
               Numbered list item
         GFM
-
         # nested numbered list
         <<-GFM.strip_heredoc,
           1. Nested
-
               1. Numbered lists
         GFM
-
         '# Heading',
         '## Heading',
         '### Heading',
         '#### Heading',
         '##### Heading',
         '###### Heading',
-
         '**Bold**',
-
         '_Italics_',
-
         '~~Strikethrough~~',
-
         '2^2',
-
         '-----',
-
         # table
         <<-GFM.strip_heredoc,
           | Centered | Right | Left |
@@ -430,7 +366,6 @@ describe 'Copy as GFM', :js do
           | Foo | Bar | **Baz** |
           | Foo | Bar | **Baz** |
         GFM
-
         # table with empty heading
         <<-GFM.strip_heredoc,
           |  | x | y |
@@ -468,9 +403,7 @@ describe 'Copy as GFM', :js do
           it 'copies as inline code' do
             verify(
               '[id="2f6fcd96b88b36ce98c38da085c795a27d92a3dd_10_9"] .line .no',
-
               '`RuntimeError`',
-
               target: '[id="2f6fcd96b88b36ce98c38da085c795a27d92a3dd_10_9"]'
             )
           end
@@ -480,9 +413,7 @@ describe 'Copy as GFM', :js do
           it 'copies as inline code' do
             verify(
               '[id="2f6fcd96b88b36ce98c38da085c795a27d92a3dd_10_9"]',
-
               '`raise RuntimeError, "System commands must be given as an array of strings"`',
-
               target: '[id="2f6fcd96b88b36ce98c38da085c795a27d92a3dd_10_9"]'
             )
           end
@@ -492,14 +423,12 @@ describe 'Copy as GFM', :js do
           it 'copies as a code block' do
             verify(
               '[id="2f6fcd96b88b36ce98c38da085c795a27d92a3dd_10_9"], [id="2f6fcd96b88b36ce98c38da085c795a27d92a3dd_10_10"]',
-
               <<-GFM.strip_heredoc,
                 ```ruby
                       raise RuntimeError, "System commands must be given as an array of strings"
                     end
                 ```
               GFM
-
               target: '[id="2f6fcd96b88b36ce98c38da085c795a27d92a3dd_10_9"]'
             )
           end
@@ -525,7 +454,6 @@ describe 'Copy as GFM', :js do
           it 'copies as a code block' do
             verify(
               '[id="2f6fcd96b88b36ce98c38da085c795a27d92a3dd_8_8"], [id="2f6fcd96b88b36ce98c38da085c795a27d92a3dd_9_9"], [id="2f6fcd96b88b36ce98c38da085c795a27d92a3dd_10_9"], [id="2f6fcd96b88b36ce98c38da085c795a27d92a3dd_10_10"]',
-
               <<-GFM.strip_heredoc,
                 ```ruby
                     unless cmd.is_a?(Array)
@@ -533,7 +461,6 @@ describe 'Copy as GFM', :js do
                     end
                 ```
               GFM
-
               target: '[id="2f6fcd96b88b36ce98c38da085c795a27d92a3dd_8_8"].left-side'
             )
           end
@@ -543,7 +470,6 @@ describe 'Copy as GFM', :js do
           it 'copies as a code block' do
             verify(
               '[id="2f6fcd96b88b36ce98c38da085c795a27d92a3dd_8_8"], [id="2f6fcd96b88b36ce98c38da085c795a27d92a3dd_9_9"], [id="2f6fcd96b88b36ce98c38da085c795a27d92a3dd_10_9"], [id="2f6fcd96b88b36ce98c38da085c795a27d92a3dd_10_10"]',
-
               <<-GFM.strip_heredoc,
                 ```ruby
                     unless cmd.is_a?(Array)
@@ -551,7 +477,6 @@ describe 'Copy as GFM', :js do
                     end
                 ```
               GFM
-
               target: '[id="2f6fcd96b88b36ce98c38da085c795a27d92a3dd_8_8"].right-side'
             )
           end
@@ -569,7 +494,6 @@ describe 'Copy as GFM', :js do
         it 'copies as inline code' do
           verify(
             '.line[id="LC9"] .no',
-
             '`RuntimeError`'
           )
         end
@@ -579,7 +503,6 @@ describe 'Copy as GFM', :js do
         it 'copies as inline code' do
           verify(
             '.line[id="LC9"]',
-
             '`raise RuntimeError, "System commands must be given as an array of strings"`'
           )
         end
@@ -589,7 +512,6 @@ describe 'Copy as GFM', :js do
         it 'copies as a code block' do
           verify(
             '.line[id="LC9"], .line[id="LC10"]',
-
             <<-GFM.strip_heredoc,
               ```ruby
                     raise RuntimeError, "System commands must be given as an array of strings"
@@ -611,7 +533,6 @@ describe 'Copy as GFM', :js do
         it 'copies as inline code' do
           verify(
             '.line[id="LC27"] .s2',
-
             '`"bio"`'
           )
         end
@@ -621,7 +542,6 @@ describe 'Copy as GFM', :js do
         it 'copies as inline code' do
           verify(
             '.line[id="LC27"]',
-
             '`"bio": null,`'
           )
         end
@@ -631,7 +551,6 @@ describe 'Copy as GFM', :js do
         it 'copies as a code block with the correct language' do
           verify(
             '.line[id="LC27"], .line[id="LC28"]',
-
             <<-GFM.strip_heredoc,
               ```json
                   "bio": null,

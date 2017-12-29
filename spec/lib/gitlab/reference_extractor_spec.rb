@@ -31,15 +31,11 @@ describe Gitlab::ReferenceExtractor do
 
     subject.analyze(%Q{
       Inline code: `@foo`
-
       Code block:
-
       ```
       @bar
       ```
-
       Quote:
-
       > @offteam
     })
 

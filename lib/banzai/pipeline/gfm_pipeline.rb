@@ -12,7 +12,6 @@ module Banzai
           Filter::PlantumlFilter,
           Filter::SanitizationFilter,
           Filter::SyntaxHighlightFilter,
-
           Filter::MathFilter,
           Filter::MermaidFilter,
           Filter::VideoLinkFilter,
@@ -22,7 +21,6 @@ module Banzai
           Filter::TableOfContentsFilter,
           Filter::AutolinkFilter,
           Filter::ExternalLinkFilter,
-
           Filter::UserReferenceFilter,
           Filter::IssueReferenceFilter,
           Filter::ExternalIssueReferenceFilter,
@@ -32,10 +30,8 @@ module Banzai
           Filter::CommitReferenceFilter,
           Filter::LabelReferenceFilter,
           Filter::MilestoneReferenceFilter,
-
           Filter::TaskListFilter,
           Filter::InlineDiffFilter,
-
           Filter::SetDirectionFilter
         ]
       end
@@ -43,7 +39,6 @@ module Banzai
       def self.transform_context(context)
         context.merge(
           only_path: true,
-
           # EmojiFilter
           asset_host: Gitlab::Application.config.asset_host,
           asset_root: Gitlab.config.gitlab.base_url

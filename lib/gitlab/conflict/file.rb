@@ -126,7 +126,6 @@ module Gitlab
         @match_line_headers[index] = begin
           if index >= 0
             line = lines[index]
-
             if line.type.nil? && line.text.match(/\A[A-Za-z$_]/)
               " #{line.text}"
             else

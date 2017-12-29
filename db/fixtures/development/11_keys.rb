@@ -1,6 +1,5 @@
 require './spec/support/sidekiq'
 
-
 # Creating keys runs a gitlab-shell worker. Since we may not have the right
 # gitlab-shell path set (yet) we need to disable this for these fixtures.
 Sidekiq::Testing.disable! do

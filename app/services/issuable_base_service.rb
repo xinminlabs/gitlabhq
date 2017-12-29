@@ -79,7 +79,6 @@ class IssuableBaseService < BaseService
     params[:label_ids] = labels.split(",").map do |label_name|
       service = Labels::FindOrCreateService.new(current_user, project, title: label_name.strip)
       label   = service.execute
-
       label.try(:id)
     end.compact
   end

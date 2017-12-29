@@ -36,7 +36,6 @@ class SentNotification < ActiveRecord::Base
         project: noteable.project,
         recipient_id: recipient_id,
         reply_key: reply_key,
-
         noteable_type: noteable.class.name,
         noteable_id: noteable_id,
         commit_id: commit_id
@@ -110,10 +109,8 @@ class SentNotification < ActiveRecord::Base
       # that don't have `in_reply_to_discussion_id` anymore.
       attrs.merge!(
         type: self.note_type,
-
         # LegacyDiffNote
         line_code: self.line_code,
-
         # DiffNote
         position: self.position.to_json
       )

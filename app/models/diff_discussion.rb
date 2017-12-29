@@ -13,7 +13,6 @@ class DiffDiscussion < Discussion
             :change_position,
             :on_text?,
             :on_image?,
-
             to: :first_note
 
   def legacy_diff_discussion?

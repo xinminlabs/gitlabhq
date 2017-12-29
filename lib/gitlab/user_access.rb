@@ -36,7 +36,6 @@ module Gitlab
 
     request_cache def can_create_tag?(ref)
       return false unless can_access_git?
-
       if protected?(ProtectedTag, project, ref)
         protected_tag_accessible_to?(ref, action: :create)
       else
@@ -46,7 +45,6 @@ module Gitlab
 
     request_cache def can_delete_branch?(ref)
       return false unless can_access_git?
-
       if protected?(ProtectedBranch, project, ref)
         user.can?(:delete_protected_branch, project)
       else
@@ -60,10 +58,8 @@ module Gitlab
 
     request_cache def can_push_to_branch?(ref)
       return false unless can_access_git?
-
       if protected?(ProtectedBranch, project, ref)
         return true if project.empty_repo? && project.user_can_push_to_empty_repo?(user)
-
         protected_branch_accessible_to?(ref, action: :push)
       else
         user.can?(:push_code, project)
@@ -72,7 +68,6 @@ module Gitlab
 
     request_cache def can_merge_to_branch?(ref)
       return false unless can_access_git?
-
       if protected?(ProtectedBranch, project, ref)
         protected_branch_accessible_to?(ref, action: :merge)
       else

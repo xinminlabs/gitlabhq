@@ -110,7 +110,6 @@ module NotesActions
         unless discussion.individual_note?
           attrs.merge!(
             discussion_resolvable: discussion.resolvable?,
-
             diff_discussion_html: diff_discussion_html(discussion),
             discussion_html: discussion_html(discussion)
           )
@@ -179,13 +178,10 @@ module NotesActions
       :commit_id,
       :noteable,
       :type,
-
       :note,
       :attachment,
-
       # LegacyDiffNote
       :line_code,
-
       # DiffNote
       :position
     )

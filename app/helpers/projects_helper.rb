@@ -416,22 +416,15 @@ module ProjectsHelper
             #{project.path}-vm:
               instance_type: t2.nano
               user_data: |-
-
                 # Created by GitLab UI for :>
-
                 echo _KD_NOTIFY_@Installing Base packages...@
-
                 apt-get update -y
                 apt-get install git -y
-
                 echo _KD_NOTIFY_@Cloning #{project.name}...@
-
                 export KODING_USER=${var.koding_user_username}
                 export REPO_URL=#{root_url}${var.koding_queryString_repo}.git
                 export BRANCH=${var.koding_queryString_branch}
-
                 sudo -i -u $KODING_USER git clone $REPO_URL -b $BRANCH
-
                 echo _KD_NOTIFY_@#{project.name} cloned.@
       CONTENT
     )

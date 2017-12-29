@@ -24,14 +24,8 @@ describe Gitlab::Email::ReplyParser do
         .to eq(
           <<-BODY.strip_heredoc.chomp
             ### reply from default mail client in Windows 8.1 Metro
-
-
             The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
-
-
             This is a **bold** word in Markdown
-
-
             This is a link http://example.com
           BODY
         )
@@ -51,10 +45,8 @@ describe Gitlab::Email::ReplyParser do
           <<-BODY.strip_heredoc.chomp
             Is there any reason the *old* candy can't be be kept in silos while the new candy
             is imported into *new* silos?
-
             The thing about candy is it stays delicious for a long time -- we can just keep
             it there without worrying about it too much, imo.
-
             Thanks for listening.
           BODY
         )
@@ -65,9 +57,7 @@ describe Gitlab::Email::ReplyParser do
         .to eq(
           <<-BODY.strip_heredoc.chomp
             Awesome!
-
             Pleasure to have you here!
-
             :boom:
           BODY
         )
@@ -121,7 +111,6 @@ describe Gitlab::Email::ReplyParser do
             > To unsubscribe from these emails, visit your user preferences
             > <https://meta.discourse.org/my/preferences>.
             >
-
             The quick brown fox jumps over the lazy dog. The quick brown fox jumps over
             the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown
             fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
@@ -136,15 +125,12 @@ describe Gitlab::Email::ReplyParser do
         .to eq(
           <<-BODY.strip_heredoc.chomp
             ### This is a reply from standard GMail in Google Chrome.
-
             The quick brown fox jumps over the lazy dog. The quick brown fox jumps over
             the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown
             fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
             The quick brown fox jumps over the lazy dog. The quick brown fox jumps over
             the lazy dog. The quick brown fox jumps over the lazy dog.
-
             Here's some **bold** text in Markdown.
-
             Here's a link http://example.com
           BODY
         )
@@ -155,11 +141,8 @@ describe Gitlab::Email::ReplyParser do
         .to eq(
           <<-BODY.strip_heredoc.chomp
             ### this is a reply from iOS default mail
-
             The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
-
             Here's some **bold** markdown text.
-
             Here's a link http://example.com
           BODY
         )
@@ -170,14 +153,11 @@ describe Gitlab::Email::ReplyParser do
         .to eq(
           <<-BODY.strip_heredoc.chomp
             ### this is a reply from Android 5 gmail
-
             The quick brown fox jumps over the lazy dog. The quick brown fox jumps over
             the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown
             fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
             The quick brown fox jumps over the lazy dog.
-
             This is **bold** in Markdown.
-
             This is a link to http://example.com
           BODY
         )
@@ -188,14 +168,8 @@ describe Gitlab::Email::ReplyParser do
         .to eq(
           <<-BODY.strip_heredoc.chomp
             ### reply from default mail client in Windows 8.1 Metro
-
-
             The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
-
-
             This is a **bold** word in Markdown
-
-
             This is a link http://example.com
           BODY
         )

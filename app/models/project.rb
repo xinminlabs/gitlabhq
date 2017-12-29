@@ -1577,7 +1577,6 @@ class Project < ActiveRecord::Base
     else
       update_attribute(name, value)
     end
-
   rescue ActiveRecord::RecordNotSaved => e
     handle_update_attribute_error(e, value)
   end
@@ -1599,7 +1598,6 @@ class Project < ActiveRecord::Base
       h[sha] = begin
         data = repository.route_map_for(sha)
         next unless data
-
         Gitlab::RouteMap.new(data)
       rescue Gitlab::RouteMap::FormatError
         nil

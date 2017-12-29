@@ -157,21 +157,17 @@ class Service < ActiveRecord::Base
         def #{arg}
           properties['#{arg}']
         end
-
         def #{arg}=(value)
           self.properties ||= {}
           updated_properties['#{arg}'] = #{arg} unless #{arg}_changed?
           self.properties['#{arg}'] = value
         end
-
         def #{arg}_changed?
           #{arg}_touched? && #{arg} != #{arg}_was
         end
-
         def #{arg}_touched?
           updated_properties.include?('#{arg}')
         end
-
         def #{arg}_was
           updated_properties['#{arg}']
         end

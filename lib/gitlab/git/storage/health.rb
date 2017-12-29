@@ -26,29 +26,23 @@ module Gitlab
         private_class_method def self.all_keys_for_storages(storage_names, redis)
           keys_per_storage = {}
           all_keys = redis.zrange(Gitlab::Git::Storage::REDIS_KNOWN_KEYS, 0, -1)
-
           storage_names.each do |storage_name|
             prefix = prefix_for_storage(storage_name)
-
             keys_per_storage[storage_name] = all_keys.select { |key| key.starts_with?(prefix) }
           end
-
           keys_per_storage
         end
 
         private_class_method def self.load_for_keys(keys_per_storage, redis)
           info_for_keys = {}
-
           redis.pipelined do
             keys_per_storage.each do |storage_name, keys_future|
               info_for_storage = keys_future.map do |key|
                 { name: key, failure_count: redis.hget(key, :failure_count) }
               end
-
               info_for_keys[storage_name] = info_for_storage
             end
           end
-
           info_for_keys
         end
 

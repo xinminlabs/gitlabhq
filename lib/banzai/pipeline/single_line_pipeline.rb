@@ -5,11 +5,9 @@ module Banzai
         @filters ||= FilterArray[
           Filter::HtmlEntityFilter,
           Filter::SanitizationFilter,
-
           Filter::EmojiFilter,
           Filter::AutolinkFilter,
           Filter::ExternalLinkFilter,
-
           Filter::UserReferenceFilter,
           Filter::IssueReferenceFilter,
           Filter::ExternalIssueReferenceFilter,

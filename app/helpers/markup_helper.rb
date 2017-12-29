@@ -256,7 +256,6 @@ module MarkupHelper
 
     context.merge!(
       current_user:   (current_user if defined?(current_user)),
-
       # RelativeLinkFilter
       commit:         @commit,
       project_wiki:   @project_wiki,

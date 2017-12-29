@@ -123,7 +123,6 @@ namespace :gitlab do
       puts "Failed to add keys...".color(:red)
       exit 1
     end
-
   rescue Gitlab::TaskAbortedByUserError
     puts "Quitting...".color(:red)
     exit 1

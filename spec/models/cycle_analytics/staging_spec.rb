@@ -33,7 +33,6 @@ describe 'CycleAnalytics#staging' do
                                  message: 'commit message',
                                  branch_name: 'master')
                                context.project.repository.commit(sha)
-
                                context.deploy_master
                              end]])
 

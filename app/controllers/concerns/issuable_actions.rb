@@ -28,7 +28,6 @@ module IssuableActions
         recaptcha_check_if_spammable(false) { render_entity_json }
       end
     end
-
   rescue ActiveRecord::StaleObjectError
     render_conflict_response
   end

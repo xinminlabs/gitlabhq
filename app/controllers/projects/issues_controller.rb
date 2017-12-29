@@ -115,7 +115,6 @@ class Projects::IssuesController < Projects::ApplicationController
         render_issue_json
       end
     end
-
   rescue ActiveRecord::StaleObjectError
     render_conflict_response
   end

@@ -327,7 +327,6 @@ module TestEnv
     end
 
     yield if block_given?
-
   rescue ComponentFailedToInstallError
     puts "\n#{component} failed to install, cleaning up #{install_dir}!\n"
     FileUtils.rm_rf(install_dir)
