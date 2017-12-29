@@ -36,13 +36,13 @@ module Gitlab
           stream.truncate(offset)
           stream.seek(0, IO::SEEK_END)
           stream.write(data)
-          stream.flush()
+          stream.flush
         end
 
         def set(data)
           truncate(0)
           stream.write(data)
-          stream.flush()
+          stream.flush
         end
 
         def raw(last_lines: nil)

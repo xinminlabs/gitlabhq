@@ -188,7 +188,7 @@ module Gitlab
       if Feature.persisted?(feature)
         if feature.percentage_of_time_value > 0
           # Probabilistically enable this feature
-          return Random.rand() * 100 < feature.percentage_of_time_value
+          return Random.rand * 100 < feature.percentage_of_time_value
         end
 
         return feature.enabled?

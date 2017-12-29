@@ -79,7 +79,7 @@ namespace :gitlab do
             "Make sure GitLab Shell is installed correctly."
           )
           for_more_information(
-            see_installation_guide_section "GitLab Shell"
+            see_installation_guide_section("GitLab Shell")
           )
           fix_and_rerun
         end
@@ -132,7 +132,7 @@ namespace :gitlab do
             "sudo find #{repo_base_path} -type d -print0 | sudo xargs -0 chmod g+s"
           )
           for_more_information(
-            see_installation_guide_section "GitLab Shell"
+            see_installation_guide_section("GitLab Shell")
           )
           fix_and_rerun
         end
@@ -164,7 +164,7 @@ namespace :gitlab do
             "sudo chown -R #{gitlab_shell_ssh_user}:root #{repo_base_path}"
           )
           for_more_information(
-            see_installation_guide_section "GitLab Shell"
+            see_installation_guide_section("GitLab Shell")
           )
           fix_and_rerun
         end
@@ -199,7 +199,7 @@ namespace :gitlab do
             'Check your gitlab-shell installation'
           )
           for_more_information(
-            see_installation_guide_section "GitLab Shell"
+            see_installation_guide_section("GitLab Shell")
           )
           fix_and_rerun
         end

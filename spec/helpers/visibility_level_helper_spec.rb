@@ -120,7 +120,7 @@ describe VisibilityLevelHelper do
     describe "project" do
       it "provides correct description for disabled levels" do
         expect(disallowed_visibility_level?(project, Gitlab::VisibilityLevel::PUBLIC)).to be_truthy
-        expect(strip_tags disallowed_visibility_level_description(Gitlab::VisibilityLevel::PUBLIC, project))
+        expect(strip_tags(disallowed_visibility_level_description(Gitlab::VisibilityLevel::PUBLIC, project)))
           .to include "the visibility of #{project.group.name} is internal"
       end
     end
@@ -132,7 +132,7 @@ describe VisibilityLevelHelper do
           .to include "it contains projects with higher visibility", "it contains sub-groups with higher visibility"
 
         expect(disallowed_visibility_level?(subgroup, Gitlab::VisibilityLevel::PUBLIC)).to be_truthy
-        expect(strip_tags disallowed_visibility_level_description(Gitlab::VisibilityLevel::PUBLIC, subgroup))
+        expect(strip_tags(disallowed_visibility_level_description(Gitlab::VisibilityLevel::PUBLIC, subgroup)))
           .to include "the visibility of #{group.name} is internal"
       end
     end

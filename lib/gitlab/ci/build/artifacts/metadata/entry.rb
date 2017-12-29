@@ -48,7 +48,7 @@ module Gitlab
             end
 
             def basename
-              (directory? && !blank_node?) ? name + '/' : name
+              directory? && !blank_node? ? name + '/' : name
             end
 
             def name

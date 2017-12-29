@@ -1176,10 +1176,10 @@ describe Gitlab::Git::Repository, seed_helper: true do
       end
 
       it 'returns no results' do
-        ref = double()
+        ref = double
         allow(ref).to receive(:name) { 'bad-branch' }
         allow(ref).to receive(:target) { raise Rugged::ReferenceError }
-        branches = double()
+        branches = double
         allow(branches).to receive(:each) { [ref].each }
         allow(repository.rugged).to receive(:branches) { branches }
 

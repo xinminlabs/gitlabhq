@@ -41,7 +41,7 @@ describe 'Project snippets', :js do
       end
 
       it 'should have zen mode' do
-        find('.js-zen-enter').click()
+        find('.js-zen-enter').click
         expect(page).to have_selector('.fullscreen')
       end
     end

@@ -138,7 +138,7 @@ describe Projects::MergeRequestsController do
     it_behaves_like "issuables list meta-data", :merge_request
 
     context 'when page param' do
-      let(:last_page) { project.merge_requests.page().total_pages }
+      let(:last_page) { project.merge_requests.page.total_pages }
       let!(:merge_request) { create(:merge_request_with_diffs, target_project: project, source_project: project) }
 
       it 'redirects to last_page if page number is larger than number of pages' do

@@ -171,7 +171,7 @@ describe Notify do
             is_expected.to have_referable_subject(issue, reply: true)
             is_expected.to have_body_text(status)
             is_expected.to have_html_escaped_body_text(current_user.name)
-            is_expected.to have_body_text(project_issue_path project, issue)
+            is_expected.to have_body_text(project_issue_path(project, issue))
           end
         end
       end

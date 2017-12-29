@@ -39,7 +39,7 @@ module API
           if !publik.nil? && !attrs[:visibility_level].present?
             # Since setting the public attribute to private could mean either
             # private or internal, use the more conservative option, private.
-            attrs[:visibility_level] = (publik == true) ? Gitlab::VisibilityLevel::PUBLIC : Gitlab::VisibilityLevel::PRIVATE
+            attrs[:visibility_level] = publik == true ? Gitlab::VisibilityLevel::PUBLIC : Gitlab::VisibilityLevel::PRIVATE
           end
           attrs
         end

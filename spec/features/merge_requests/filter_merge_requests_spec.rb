@@ -38,19 +38,19 @@ describe 'Filter merge requests' do
 
     context 'assignee', :js do
       it 'updates to current user' do
-        expect_assignee_visual_tokens()
+        expect_assignee_visual_tokens
       end
 
       it 'does not change when closed link is clicked' do
         find('.issues-state-filters [data-state="closed"]').click
 
-        expect_assignee_visual_tokens()
+        expect_assignee_visual_tokens
       end
 
       it 'does not change when all link is clicked' do
         find('.issues-state-filters [data-state="all"]').click
 
-        expect_assignee_visual_tokens()
+        expect_assignee_visual_tokens
       end
     end
   end
@@ -71,19 +71,19 @@ describe 'Filter merge requests' do
 
     context 'milestone', :js do
       it 'updates to current milestone' do
-        expect_milestone_visual_tokens()
+        expect_milestone_visual_tokens
       end
 
       it 'does not change when closed link is clicked' do
         find('.issues-state-filters [data-state="closed"]').click
 
-        expect_milestone_visual_tokens()
+        expect_milestone_visual_tokens
       end
 
       it 'does not change when all link is clicked' do
         find('.issues-state-filters [data-state="all"]').click
 
-        expect_milestone_visual_tokens()
+        expect_milestone_visual_tokens
       end
     end
   end
@@ -146,19 +146,19 @@ describe 'Filter merge requests' do
       end
 
       it 'updates to current assignee and label' do
-        expect_assignee_label_visual_tokens()
+        expect_assignee_label_visual_tokens
       end
 
       it 'does not change when closed link is clicked' do
         find('.issues-state-filters [data-state="closed"]').click
 
-        expect_assignee_label_visual_tokens()
+        expect_assignee_label_visual_tokens
       end
 
       it 'does not change when all link is clicked' do
         find('.issues-state-filters [data-state="all"]').click
 
-        expect_assignee_label_visual_tokens()
+        expect_assignee_label_visual_tokens
       end
     end
   end

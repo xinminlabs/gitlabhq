@@ -58,7 +58,7 @@ describe API::PipelineSchedules do
         end
 
         def active?(str)
-          (str == 'active') ? true : false
+          str == 'active' ? true : false
         end
       end
     end

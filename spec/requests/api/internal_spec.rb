@@ -813,7 +813,7 @@ describe API::Internal do
   end
 
   def project_with_repo_path(path)
-    double().tap do |fake_project|
+    double.tap do |fake_project|
       allow(fake_project).to receive_message_chain('repository.path_to_repo' => path)
     end
   end

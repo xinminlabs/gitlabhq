@@ -376,7 +376,7 @@ feature 'Jobs' do
       before do
         job.run!
         visit project_job_path(project, job)
-        find('.js-cancel-job').click()
+        find('.js-cancel-job').click
       end
 
       it 'loads the page and shows all needed controls' do
@@ -390,7 +390,7 @@ feature 'Jobs' do
       before do
         job.run!
         visit project_job_path(project, job)
-        find('.js-cancel-job').click()
+        find('.js-cancel-job').click
         find('.js-retry-button').click
       end
 

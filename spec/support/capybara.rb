@@ -5,7 +5,7 @@ require 'capybara-screenshot/rspec'
 require 'selenium-webdriver'
 
 # Give CI some extra time
-timeout = (ENV['CI'] || ENV['CI_SERVER']) ? 60 : 30
+timeout = ENV['CI'] || ENV['CI_SERVER'] ? 60 : 30
 
 Capybara.register_driver :chrome do |app|
   capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
